@@ -24,15 +24,15 @@ All files sit in a single flat directory (no subfolders) so relative links resol
 
 ```
 ├── index.html                                 Homepage: hero, full portfolio grid, experience, contact
-├── portfolio.html                            Dedicated Portfolio page — alternating case-study rows
-├── styles.css                                  Design tokens, layout, and responsive styles
-├── script.js                                    Mobile nav toggle, contact form interaction
-├── fellowship-project.html               UI/UX Fellowship case study (Forest app redesign)
-├── rutgers-welcome-week.html          Rutgers Welcome Week site build
-├── freelance-doctor-website.html      Freelance client project
-├── rutgers-residence-life.html         Rutgers Residence Life department site
-├── volunteer-website.html                YesMiss, Inc. nonprofit website
-└── rutgers-dining-website.html         Rutgers Dining Services department site
+├── portfolio.html                             Dedicated Portfolio page — alternating case-study rows
+├── styles.css                                 Design tokens, layout, and responsive styles
+├── script.js                                  Mobile nav toggle, contact form interaction
+├── fellowship-project.html                    UI/UX Fellowship case study (Forest app redesign)
+├── rutgers-welcome-week.html                  Rutgers Welcome Week site build
+├── freelance-doctor-website.html              Freelance client project
+├── rutgers-residence-life.html                Rutgers Residence Life department site
+├── volunteer-website.html                     YesMiss, Inc. nonprofit website
+└── rutgers-dining-website.html                Rutgers Dining Services department site
 ```
 
 The homepage (`index.html`) shows all 6 projects as a compact card grid. The Portfolio page (`portfolio.html`) presents the same 6 projects in a different, more detailed layout — alternating full-width rows with role, timeline, and a longer description for each.
