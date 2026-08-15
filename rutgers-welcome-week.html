@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Rutgers Welcome Week Website — Anushka Singh</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Homepage and section builds for Rutgers–New Brunswick's Welcome Week site.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav" aria-label="Primary">
+    <a class="nav-logo" href="index.html">A.</a>
+    <ul class="nav-links">
+      <li><a href="portfolio.html">All Projects</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main">
+  <section class="case-hero">
+    <a class="back-link" href="portfolio.html">&larr; Back to Portfolio</a>
+    <span class="case-status">Live</span>
+    <h1>Rutgers Welcome Week Website</h1>
+
+    <div class="case-meta">
+      <div class="case-meta-item">
+        <span class="case-meta-label">Role</span>
+        <span class="case-meta-value">Web Design Intern Manager</span>
+      </div>
+      <div class="case-meta-item">
+        <span class="case-meta-label">Type</span>
+        <span class="case-meta-value">Full Site Build</span>
+      </div>
+      <div class="case-meta-item">
+        <span class="case-meta-label">Timeline</span>
+        <span class="case-meta-value">2026</span>
+      </div>
+      <div class="case-meta-item">
+        <span class="case-meta-label">Org</span>
+        <span class="case-meta-value">Student Affairs, Rutgers University</span>
+      </div>
+    </div>
+
+    <div class="case-banner thumb-2"></div>
+  </section>
+
+  <div class="case-body">
+    <div class="case-content">
+      <h2>Overview</h2>
+      <p>Homepage and section builds for Rutgers–New Brunswick's Welcome Week site — a resource hub meant to give incoming and returning students one clear starting point to orient themselves before move-in, rather than needing to hunt across a dozen different department pages.</p>
+
+      <h2>What I Built</h2>
+      <p>I worked on the layout and content structure for the homepage and several key sections:</p>
+      <ul>
+        <li>Homepage hero and introductory "Rutgers Welcome" section, with embedded video</li>
+        <li>A <strong>Facility Hours</strong> quick-access hub covering dining, student centers, health centers, and recreation</li>
+        <li>A <strong>Navigating Campus</strong> section with campus map access and bus route resources</li>
+        <li>An <strong>Arrival &amp; Move-In</strong> section with move-in guidance</li>
+        <li>An events listing pulling in upcoming Welcome Week programming</li>
+        <li>A "Get Involved" teaser directing students toward the fuller events schedule</li>
+      </ul>
+
+      <h2>Status</h2>
+      <p>This site is now live: <a href="https://welcome.rutgers.edu" target="_blank" rel="noopener">welcome.rutgers.edu</a>.</p>
+    </div>
+
+    <aside class="case-sidebar">
+      <h3>Quick Facts</h3>
+      <dl>
+        <dt>Department</dt>
+        <dd>Student Affairs, Rutgers&ndash;New Brunswick</dd>
+        <dt>Scope</dt>
+        <dd>Homepage &amp; multiple sections</dd>
+        <dt>Status</dt>
+        <dd>Live &mdash; <a href="https://welcome.rutgers.edu" target="_blank" rel="noopener">welcome.rutgers.edu</a></dd>
+      </dl>
+    </aside>
+  </div>
+
+  <section class="other-projects">
+    <div class="other-projects-inner">
+      <h2>More Projects</h2>
+      <a class="back-link" href="portfolio.html">&larr; View all projects</a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <p>&copy; <span id="year"></span> Anushka Singh. Built from scratch with HTML, CSS &amp; JavaScript.</p>
+</footer>
+
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
