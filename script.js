@@ -2,28 +2,55 @@
 const navToggle = document.getElementById('navToggle');
 const navLinks = document.getElementById('navLinks');
 
-navToggle.addEventListener('click', () => {
-  const isOpen = navLinks.classList.toggle('open');
-  navToggle.setAttribute('aria-expanded', String(isOpen));
-});
-
-navLinks.querySelectorAll('a').forEach((link) => {
-  link.addEventListener('click', () => {
-    navLinks.classList.remove('open');
-    navToggle.setAttribute('aria-expanded', 'false');
+if (navToggle && navLinks) {
+  navToggle.addEventListener('click', () => {
+    const isOpen = navLinks.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', String(isOpen));
   });
-});
+
+  navLinks.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+}
 
 // Contact form — static demo only, no backend attached.
-// Mirrors the "Thanks for reaching out!" confirmation from the live site.
 const contactForm = document.getElementById('contactForm');
 const formNote = document.getElementById('formNote');
 
-contactForm.addEventListener('submit', (e) => {
-  e.preventDefault();
-  formNote.textContent = 'Thanks for reaching out! (This is a static demo — no message was actually sent.)';
-  contactForm.reset();
-});
+if (contactForm) {
+  contactForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    formNote.textContent = "Thanks for reaching out! (This is a static demo — no message was actually sent.)";
+    contactForm.reset();
+  });
+}
+
+// "Develop" reveal — polaroids fade in from grayscale/dark as they enter view,
+// mimicking a photo developing. Falls back to fully visible if IntersectionObserver
+// or prefers-reduced-motion isn't available.
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const developables = document.querySelectorAll('.polaroid, .project-card, .project-row-thumb-wrap');
+
+if (prefersReducedMotion || !('IntersectionObserver' in window)) {
+  developables.forEach((el) => el.classList.add('is-visible'));
+} else {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.2, rootMargin: '0px 0px -60px 0px' }
+  );
+  developables.forEach((el) => observer.observe(el));
+}
 
 // Footer year
-document.getElementById('year').textContent = new Date().getFullYear();
+const yearEl = document.getElementById('year');
+if (yearEl) yearEl.textContent = new Date().getFullYear();

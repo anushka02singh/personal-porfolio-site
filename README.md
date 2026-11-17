@@ -1,19 +1,22 @@
-# Portfolio Site — Hand-Coded Recreation
+# Portfolio Site — Darkroom / Polaroid Archive
 
-A from-scratch HTML/CSS/JavaScript build of my personal portfolio site, recreating the content and structure of my live site (currently hosted on Wix) as fully custom code — no page builder, no framework.
+A from-scratch HTML/CSS/JavaScript build of my personal portfolio, styled as a running photo archive — projects presented as tilted, "developing" polaroids filed into a personal darkroom. No page builder, no framework.
 
-**Note:** This version isn't deployed live (no custom domain set up yet), but it runs locally or via any static host — just open `index.html` in a browser, or serve the folder with any static file server.
+## Design Direction
 
-## Why I Built This
+The site treats each project like a photograph being filed into an archive:
 
-My live portfolio is built on Wix. This repo is a hand-coded version of the same content, built to demonstrate that I can design and implement a site like this entirely in code — semantic HTML, custom CSS (no framework), and vanilla JavaScript for interactivity.
+- **Palette:** near-black, warm film-flash gold, dusty pink, and burgundy, against cream polaroid paper.
+- **Type:** Space Grotesk (display), Inter (body), IBM Plex Mono (labels/meta), Caveat (handwritten polaroid captions).
+- **Motion:** polaroids and project cards "develop" into color from grayscale as they scroll into view (`prefers-reduced-motion` respected, and everything still renders fully visible without JavaScript).
+- **Texture:** a fixed film-grain/vignette overlay runs behind every page.
 
 ## Features
 
 - Fully responsive layout (desktop down to mobile, with a custom mobile nav toggle)
 - Custom CSS design system (color tokens, type scale, consistent spacing) — no CSS framework
-- Coded hero graphic (a generative "skyline" motif built with pure CSS, echoing the visual style of my live site's hero image)
-- Interactive project grid — each project links to its own dedicated case study page
+- Scroll-triggered "develop" animation via `IntersectionObserver`
+- Interactive project grid — each project links to its own dedicated case study page, presented as a polaroid
 - Chronological experience timeline with connecting line and date markers
 - Contact form with client-side interaction (static demo — not connected to a backend)
 - Accessibility basics: skip link, visible focus states, `prefers-reduced-motion` support, semantic landmarks
@@ -23,10 +26,10 @@ My live portfolio is built on Wix. This repo is a hand-coded version of the same
 All files sit in a single flat directory (no subfolders) so relative links resolve correctly regardless of hosting setup:
 
 ```
-├── index.html                                 Homepage: hero, full portfolio grid, experience, contact
-├── portfolio.html                             Dedicated Portfolio page — alternating case-study rows
+├── index.html                                 Homepage: hero, polaroid strip, portfolio grid, experience, contact
+├── portfolio.html                             Dedicated Archive page — alternating polaroid case-study rows
 ├── styles.css                                 Design tokens, layout, and responsive styles
-├── script.js                                  Mobile nav toggle, contact form interaction
+├── script.js                                  Mobile nav toggle, contact form interaction, develop animation
 ├── fellowship-project.html                    UI/UX Fellowship case study (Forest app redesign)
 ├── rutgers-welcome-week.html                  Rutgers Welcome Week site build
 ├── freelance-doctor-website.html              Freelance client project
@@ -35,16 +38,14 @@ All files sit in a single flat directory (no subfolders) so relative links resol
 └── rutgers-dining-website.html                Rutgers Dining Services department site
 ```
 
-The homepage (`index.html`) shows all 6 projects as a compact card grid. The Portfolio page (`portfolio.html`) presents the same 6 projects in a different, more detailed layout — alternating full-width rows with role, timeline, and a longer description for each.
-
 Each project page follows a consistent case-study format: role, project type, timeline, an overview, what I actually did, and current status (live, in development, or concluded) — written honestly rather than overstating scope.
 
 ## Tech Stack
 
 - HTML5 (semantic markup)
-- CSS3 (custom properties, Grid, Flexbox, no framework)
-- Vanilla JavaScript (mobile nav toggle, form interaction)
-- Google Fonts: Space Grotesk, Inter, IBM Plex Mono
+- CSS3 (custom properties, Flexbox, Grid, no framework)
+- Vanilla JavaScript (mobile nav toggle, form interaction, IntersectionObserver reveal)
+- Google Fonts: Space Grotesk, Inter, IBM Plex Mono, Caveat
 
 ## Running Locally
 
@@ -52,6 +53,6 @@ No build step required. Either:
 - Open `index.html` directly in a browser, or
 - Serve the folder locally, e.g. `python3 -m http.server 8080` and visit `localhost:8080`
 
-## Live Version
+## Deploying
 
-The live, deployed version of my portfolio (currently on Wix, pending migration to a custom domain) is at: https://anushka0singh.wixsite.com/myportfolio
+This repo is deployed via GitHub Pages — see the repository settings for the live URL.
