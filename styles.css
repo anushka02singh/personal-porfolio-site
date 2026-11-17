@@ -2,19 +2,19 @@
    TOKENS — Darkroom / Polaroid Archive
 ========================================================= */
 :root {
-  --bg: #0a070c;
-  --bg-soft: #120d16;
-  --surface: #15101c;
-  --surface-alt: #1c1522;
-  --paper: #f3ede4;
-  --paper-ink: #2a1f1a;
-  --paper-ink-soft: #5a4f47;
-  --accent: #f3d9a4;       /* warm flash */
-  --accent-soft: #e3a9c0;  /* dusty pink */
-  --accent-wine: #7a2541;  /* burgundy */
-  --text: #f0e9e2;
-  --text-muted: #b7aea3;
-  --border: rgba(240, 233, 226, 0.12);
+  --bg: #0a0510;         /* near-black, purple undertone */
+  --bg-soft: #140a1c;
+  --surface: #190e24;
+  --surface-alt: #21122f;
+  --paper: #e3d9c8;       /* aged ivory, not stark white */
+  --paper-ink: #2a1824;   /* deep wine-black ink */
+  --paper-ink-soft: #6b4f5c;
+  --accent: #c9974a;       /* antique gold flash, muted */
+  --accent-soft: #b97b93;  /* dusty mauve */
+  --accent-wine: #5c1d35;  /* burgundy */
+  --text: #ece4de;
+  --text-muted: #a89aad;
+  --border: rgba(236, 228, 222, 0.12);
 
   --font-display: 'Space Grotesk', sans-serif;
   --font-body: 'Inter', sans-serif;
@@ -52,9 +52,10 @@ body::before {
   pointer-events: none;
   z-index: 1;
   background:
-    radial-gradient(circle at 18% 8%, rgba(243, 217, 164, 0.06), transparent 45%),
-    radial-gradient(circle at 85% 72%, rgba(122, 37, 65, 0.22), transparent 55%),
-    radial-gradient(ellipse at center, transparent 45%, rgba(0,0,0,0.5) 100%);
+    radial-gradient(circle at 18% 8%, rgba(201, 151, 74, 0.05), transparent 45%),
+    radial-gradient(circle at 85% 72%, rgba(92, 29, 53, 0.32), transparent 55%),
+    radial-gradient(circle at 50% 100%, rgba(60, 20, 70, 0.18), transparent 60%),
+    radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.6) 100%);
 }
 
 img { max-width: 100%; display: block; }
@@ -223,6 +224,7 @@ a { color: inherit; text-decoration: none; }
 }
 
 .polaroid {
+  position: relative;
   background: var(--paper);
   padding: 14px 14px 46px;
   border-radius: 2px;
@@ -234,6 +236,41 @@ a { color: inherit; text-decoration: none; }
   transform: translateY(16px);
   transition: opacity 0.9s ease, filter 1.1s ease, transform 0.7s ease;
 }
+
+/* camera-flash flicker the instant a polaroid develops */
+.polaroid::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #fff8ec;
+  border-radius: 2px;
+  opacity: 0;
+  pointer-events: none;
+}
+.polaroid.is-visible::after {
+  animation: flash-pop 0.8s ease-out;
+}
+
+@keyframes flash-pop {
+  0% { opacity: 0; }
+  10% { opacity: 0.85; }
+  30% { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+@keyframes idle-float {
+  0%, 100% { transform: translateY(0) rotate(var(--r, 0deg)); }
+  50% { transform: translateY(-9px) rotate(var(--r, 0deg)); }
+}
+
+/* gentle idle sway once developed, like a photo pinned to a line */
+.polaroid-strip .polaroid.is-visible {
+  animation: idle-float 5.5s ease-in-out infinite;
+  animation-delay: 1s;
+}
+.polaroid-strip .polaroid:nth-child(1) { --r: -6deg; }
+.polaroid-strip .polaroid:nth-child(2) { --r: 4deg; animation-delay: 1.4s; }
+.polaroid-strip .polaroid:nth-child(3) { --r: -2deg; animation-delay: 1.8s; }
 .polaroid.is-visible {
   opacity: 1;
   filter: grayscale(0) brightness(1) contrast(1);
@@ -334,12 +371,24 @@ a { color: inherit; text-decoration: none; }
   border-radius: 1px;
 }
 
-.thumb-1 { background: linear-gradient(135deg, #6a3fd1, #a06bff); }
-.thumb-2 { background: linear-gradient(135deg, #b03fd1, #ff6b9c); }
-.thumb-3 { background: linear-gradient(135deg, #3f7cd1, #6bd0ff); }
-.thumb-4 { background: linear-gradient(135deg, #d1913f, #ffce6b); }
-.thumb-5 { background: linear-gradient(135deg, #3fd192, #6bffce); }
-.thumb-6 { background: linear-gradient(135deg, #d13f6a, #ff6b8f); }
+/* Moody duotone family — wine, plum, near-black. No two adjacent cards
+   should read as the same tone, but none break the palette. */
+.thumb-1 { background: linear-gradient(135deg, #2e1a3d, #5a2f52); }       /* plum — Fellowship */
+.thumb-2 { background: linear-gradient(135deg, #3a1420, #7a2541); }      /* wine — Welcome Week */
+.thumb-3 { background: linear-gradient(135deg, #1c1430, #4a2a63); }      /* violet — Doctor site */
+.thumb-4 { background: linear-gradient(135deg, #2b1118, #601f36); }      /* cranberry — Residence Life */
+.thumb-5 { background: linear-gradient(135deg, #241934, #4f2d4a); }      /* mauve-plum — Volunteer */
+.thumb-6 { background: linear-gradient(135deg, #150d1c, #3d1b2e); }      /* near-black wine — Dining */
+.thumb-7 { background: linear-gradient(135deg, #2a1830, #6b2f4f); }      /* orchid-wine — Rutgers Club */
+.thumb-8 { background: linear-gradient(135deg, #1e1226, #4a2440); }      /* deep aubergine — HR Site */
+
+/* a faint grain/vignette over every thumbnail so blocks read as a
+   photo tone rather than a flat color swatch */
+.project-thumb, .polaroid-photo, .case-banner, .project-row-thumb {
+  position: relative;
+  background-blend-mode: normal;
+  box-shadow: inset 0 0 50px rgba(0,0,0,0.35);
+}
 
 .project-card h3 {
   font-family: var(--font-hand);
@@ -509,8 +558,8 @@ a { color: inherit; text-decoration: none; }
 
 .form-row input,
 .form-row textarea {
-  background: #fff;
-  border: 1px solid rgba(42, 31, 26, 0.18);
+  background: #f3ece0;
+  border: 1px solid rgba(42, 24, 36, 0.2);
   border-radius: 3px;
   padding: 12px 14px;
   color: var(--paper-ink);

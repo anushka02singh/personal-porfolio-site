@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Rutgers Club Website — Anushka Singh</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Hero banner, menu, and staff directory rebuild for The Rutgers Club's website.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Caveat:wght@600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav" aria-label="Primary">
+    <a class="nav-logo" href="index.html">A.</a>
+    <ul class="nav-links">
+      <li><a href="portfolio.html">All Projects</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main">
+  <section class="case-hero">
+    <a class="back-link" href="portfolio.html">&larr; Back to Archive</a>
+    <span class="case-status">Live</span>
+    <h1>Rutgers Club Website</h1>
+
+    <div class="case-meta">
+      <div class="case-meta-item">
+        <span class="case-meta-label">Role</span>
+        <span class="case-meta-value">Website Manager</span>
+      </div>
+      <div class="case-meta-item">
+        <span class="case-meta-label">Type</span>
+        <span class="case-meta-value">Hero, Menu &amp; Directory Rebuild</span>
+      </div>
+      <div class="case-meta-item">
+        <span class="case-meta-label">Timeline</span>
+        <span class="case-meta-value">2026</span>
+      </div>
+      <div class="case-meta-item">
+        <span class="case-meta-label">Org</span>
+        <span class="case-meta-value">The Rutgers Club, Rutgers University</span>
+      </div>
+    </div>
+
+    <div class="case-banner-wrap">
+      <div class="case-banner thumb-7"></div>
+      <div class="case-banner-caption">the club, rebuilt in pieces</div>
+    </div>
+  </section>
+
+  <div class="case-body">
+    <div class="case-content">
+      <h2>Overview</h2>
+      <p>A multi-part refresh of The Rutgers Club's site &mdash; the membership dining club's homepage banner, drink-and-dining menu, and board &amp; staff directory. Everything was written as plain HTML and CSS meant to paste directly into the site's Drupal CKEditor field, since the theme has no support for JavaScript or front-end frameworks on the front end.</p>
+
+      <h2>What I Did</h2>
+      <ul>
+        <li>Rebuilt the homepage hero banner's floating text panel &mdash; the membership message plus "Learn More" and "View Menus" buttons &mdash; repositioning and resizing it against the live venue photo through several rounds until it no longer covered the club's name in the image</li>
+        <li>Converted a six-category menu (Lunch Buffet, Bar, Catering, Wine, Beer, Signature Cocktails) into one tabbed page built entirely from CSS &mdash; hidden radio inputs and labels, no JavaScript &mdash; and checked it at both desktop and phone widths before handing it off</li>
+        <li>Rebuilt the Board &amp; Staff directory from inconsistent source copy into uniform cards: cropped headshots where photos existed, initials avatars where they didn't, with titles and bios cleaned up and correctly attributed to the right person</li>
+        <li>Wrote and formatted the Announcements section &mdash; seasonal event postings, private-event closure notices, and a linked event request form &mdash; to match the rest of the site's structure</li>
+      </ul>
+
+      <h2>Status</h2>
+      <p>Live, delivered section by section as each piece was approved and pasted in by the club's own staff.</p>
+    </div>
+
+    <aside class="case-sidebar">
+      <h3>Quick Facts</h3>
+      <dl>
+        <dt>Organization</dt>
+        <dd>The Rutgers Club</dd>
+        <dt>Constraint</dt>
+        <dd>Plain HTML/CSS only &mdash; no JS, no framework</dd>
+        <dt>Status</dt>
+        <dd>Live, ongoing</dd>
+      </dl>
+    </aside>
+  </div>
+
+  <section class="other-projects">
+    <div class="other-projects-inner">
+      <h2>More Projects</h2>
+      <a class="back-link" href="portfolio.html">&larr; View all projects</a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <p>&copy; <span id="year"></span> Anushka Singh.</p>
+</footer>
+
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

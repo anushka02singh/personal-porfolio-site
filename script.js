@@ -34,6 +34,14 @@ if (contactForm) {
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const developables = document.querySelectorAll('.polaroid, .project-card, .project-row-thumb-wrap');
 
+// stagger the "develop" cascade — each photo in a row/grid catches the
+// light a beat after its neighbor, instead of all firing at once
+developables.forEach((el, i) => {
+  const groupIndex = Array.prototype.indexOf.call(el.parentElement.children, el);
+  const delay = Math.min(groupIndex, 6) * 90;
+  el.style.transitionDelay = `${delay}ms`;
+});
+
 if (prefersReducedMotion || !('IntersectionObserver' in window)) {
   developables.forEach((el) => el.classList.add('is-visible'));
 } else {

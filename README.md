@@ -6,9 +6,9 @@ A from-scratch HTML/CSS/JavaScript build of my personal portfolio, styled as a r
 
 The site treats each project like a photograph being filed into an archive:
 
-- **Palette:** near-black, warm film-flash gold, dusty pink, and burgundy, against cream polaroid paper.
+- **Palette:** near-black with a purple undertone, antique gold flash, dusty mauve, and deep burgundy/wine duotones — against aged ivory polaroid paper (not stark white).
 - **Type:** Space Grotesk (display), Inter (body), IBM Plex Mono (labels/meta), Caveat (handwritten polaroid captions).
-- **Motion:** polaroids and project cards "develop" into color from grayscale as they scroll into view (`prefers-reduced-motion` respected, and everything still renders fully visible without JavaScript).
+- **Motion:** polaroids and project cards "develop" into color from grayscale as they scroll into view, with a quick camera-flash flicker the instant each one resolves, a staggered cascade across each row/grid, and a gentle idle sway on the hero strip once developed (`prefers-reduced-motion` respected throughout; everything still renders fully visible without JavaScript).
 - **Texture:** a fixed film-grain/vignette overlay runs behind every page.
 
 ## Features
@@ -30,12 +30,14 @@ All files sit in a single flat directory (no subfolders) so relative links resol
 ├── portfolio.html                             Dedicated Archive page — alternating polaroid case-study rows
 ├── styles.css                                 Design tokens, layout, and responsive styles
 ├── script.js                                  Mobile nav toggle, contact form interaction, develop animation
-├── fellowship-project.html                    UI/UX Fellowship case study (Forest app redesign)
+├── rutgers-hr-site.html                       HR & Employment resource page rebuild
+├── rutgers-club-website.html                  Rutgers Club hero, menu & staff directory rebuild
 ├── rutgers-welcome-week.html                  Rutgers Welcome Week site build
-├── freelance-doctor-website.html              Freelance client project
+├── rutgers-dining-website.html                Rutgers Dining Services department site
 ├── rutgers-residence-life.html                Rutgers Residence Life department site
 ├── volunteer-website.html                     YesMiss, Inc. nonprofit website
-└── rutgers-dining-website.html                Rutgers Dining Services department site
+├── freelance-doctor-website.html              Freelance client project
+└── fellowship-project.html                    UI/UX Fellowship case study (Forest app redesign)
 ```
 
 Each project page follows a consistent case-study format: role, project type, timeline, an overview, what I actually did, and current status (live, in development, or concluded) — written honestly rather than overstating scope.
