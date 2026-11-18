@@ -106,7 +106,7 @@ if (contactForm && camera) {
     }
     sendBtn.disabled = true; note.textContent = 'Developing\u2026';
     fetch(endpoint, { method: 'POST', body: data, headers: { Accept: 'application/json' } })
-      .then((r) => { if (!r.ok) throw new Error('bad status'); done(first, 'Photo developed and sent. I will reply to the email you gave.'); })
+      .then((r) => { if (!r.ok) throw new Error('bad status'); done(first, 'Photo developed and sent! I will reply as soon as I can!'); })
       .catch(() => { note.textContent = 'That did not send. Please try again in a moment.'; })
       .finally(() => { sendBtn.disabled = false; });
   });
