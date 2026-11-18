@@ -37,7 +37,8 @@ const developables = document.querySelectorAll('.polaroid, .project-card, .proje
 // stagger the "develop" cascade — each photo in a row/grid catches the
 // light a beat after its neighbor, instead of all firing at once
 developables.forEach((el, i) => {
-  const groupIndex = Array.prototype.indexOf.call(el.parentElement.children, el);
+  const host = el.closest('.hang') || el;
+  const groupIndex = Array.prototype.indexOf.call(host.parentElement.children, host);
   const delay = Math.min(groupIndex, 6) * 90;
   el.style.transitionDelay = `${delay}ms`;
 });
@@ -57,6 +58,20 @@ if (prefersReducedMotion || !('IntersectionObserver' in window)) {
     { threshold: 0.2, rootMargin: '0px 0px -60px 0px' }
   );
   developables.forEach((el) => observer.observe(el));
+}
+
+// Cursor "wind" — hanging polaroids tilt away from the pointer
+const pushes = document.querySelectorAll('.hang-push');
+if (pushes.length && !prefersReducedMotion) {
+  window.addEventListener('pointermove', (e) => {
+    pushes.forEach((p) => {
+      const r = p.getBoundingClientRect();
+      const dx = (e.clientX - (r.left + r.width / 2)) / window.innerWidth;
+      const dy = Math.abs(e.clientY - (r.top + r.height / 2)) / window.innerHeight;
+      const strength = Math.max(0, 1 - dy * 2.2);
+      p.style.setProperty('--wind', (-dx * 22 * strength).toFixed(2) + 'deg');
+    });
+  });
 }
 
 // Footer year
