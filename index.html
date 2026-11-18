@@ -2,12 +2,11 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-qOhFsq0QMV2REqNwk5hGH5bZE9SkX6gt6yeyKdYPv+U='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src https://formspree.io; form-action https://formspree.io; base-uri 'self'; object-src 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Anushka Singh — Web Developer &amp; Designer</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Anushka Singh — Web Developer & Designer. A running archive of projects, experience, and contact.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Space+Grotesk:wght@500;600;700&family=Caveat:wght@600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <script>document.documentElement.classList.add("js")</script>
 </head>
@@ -188,6 +187,7 @@
     </div>
 
     <div class="lab-group">
+      <p class="lab-label">Developed <span>&mdash; finished pieces</span></p>
       <div class="project-grid">
 
       <a class="project-card-link" href="peerconnect-prototype.html">
@@ -243,6 +243,7 @@
     </div>
 
     <div class="lab-group">
+      <p class="lab-label">Test shots <span>&mdash; the step before the picture</span></p>
       <div class="shot-row">
 
       <a class="shot-link" href="cafe-paris-redesign.html">
@@ -358,8 +359,8 @@
       <h2>Contact</h2>
       <p>If something here is relevant to what you're building, I'd like to hear about it. Say it to the camera below, or find me on either platform.</p>
       <div class="socials">
-        <a href="https://github.com/anushka02singh" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://www.linkedin.com/in/anushka-singh-as/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/anushka02singh" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://www.linkedin.com/in/anushka-singh-as/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
       </div>
     </div>
 
@@ -375,20 +376,21 @@
           <div class="lens-ring"><div class="lens-glass"><span class="lens-glint"></span></div></div>
         </div>
 
-        <form class="lcd" id="contactForm">
+        <form class="lcd" id="contactForm" method="post" action="https://formspree.io/f/YOUR_FORM_ID" data-endpoint="https://formspree.io/f/YOUR_FORM_ID" novalidate>
           <div class="lcd-bar"><span><b>&#9679;</b> REC &middot; msg mode</span><span>1/1</span></div>
           <div class="form-row">
             <label for="name">Name</label>
-            <input type="text" id="name" name="name" required autocomplete="name">
+            <input type="text" id="name" name="name" required maxlength="80" autocomplete="name">
           </div>
           <div class="form-row">
             <label for="email">Email</label>
-            <input type="email" id="email" name="email" required autocomplete="email">
+            <input type="email" id="email" name="email" required maxlength="120" autocomplete="email">
           </div>
           <div class="form-row">
             <label for="message">Message</label>
-            <textarea id="message" name="message" rows="4" required></textarea>
+            <textarea id="message" name="message" rows="4" required maxlength="2000"></textarea>
           </div>
+          <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
           <button type="submit" class="btn btn-primary">Snap &amp; Send &#10022;</button>
           <p class="form-note" id="formNote" role="status" aria-live="polite"></p>
         </form>

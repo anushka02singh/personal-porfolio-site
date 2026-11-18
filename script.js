@@ -1,3 +1,6 @@
+// refuse to be framed by another site (clickjacking)
+if (window.top !== window.self) { document.documentElement.style.display = 'none'; try { window.top.location = window.self.location; } catch (e) {} }
+
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const finePointer = window.matchMedia('(pointer: fine)').matches;
 
@@ -73,17 +76,37 @@ if (contactForm && camera) {
   }
   lens.addEventListener('click', shoot);
 
-  // static demo only — no backend attached
-  contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const name = (document.getElementById('name').value || '').trim().split(' ')[0];
+  // sends through the form service set in data-endpoint; falls back to the visitor's own email app until one is set
+  const endpoint = contactForm.dataset.endpoint || '';
+  const configured = endpoint.startsWith('https://formspree.io/f/') && !endpoint.includes('YOUR_FORM_ID');
+  const sendBtn = contactForm.querySelector('button[type="submit"]');
+  const done = (first, msg) => {
     shoot();
     setTimeout(() => {
-      caption.textContent = name ? `thanks, ${name}! (demo — nothing sent)` : 'thanks! (demo — nothing sent)';
-      note.textContent = 'Photo developed. This is a static demo — no message was actually sent.';
+      caption.textContent = first ? `thanks, ${first}!` : 'thanks!';
+      note.textContent = msg;
       camera.classList.add('printed');
       contactForm.reset();
     }, 450);
+  };
+  contactForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (!contactForm.checkValidity()) { contactForm.reportValidity(); return; }
+    const data = new FormData(contactForm);
+    const first = String(data.get('name') || '').trim().split(' ')[0];
+    if (data.get('_gotcha')) { done(first, 'Photo developed.'); return; } // bots fill the hidden field
+    if (!configured) {
+      const to = ['anushka0singh', 'gmail.com'].join('@');
+      const body = String(data.get('message')) + '\n\n' + String(data.get('name')) + ' (' + String(data.get('email')) + ')';
+      window.location.href = 'mailto:' + to + '?subject=' + encodeURIComponent('Portfolio message from ' + data.get('name')) + '&body=' + encodeURIComponent(body);
+      note.textContent = 'Opening your email app to send this.';
+      return;
+    }
+    sendBtn.disabled = true; note.textContent = 'Developing\u2026';
+    fetch(endpoint, { method: 'POST', body: data, headers: { Accept: 'application/json' } })
+      .then((r) => { if (!r.ok) throw new Error('bad status'); done(first, 'Photo developed and sent. I will reply to the email you gave.'); })
+      .catch(() => { note.textContent = 'That did not send. Please try again in a moment.'; })
+      .finally(() => { sendBtn.disabled = false; });
   });
 }
 
