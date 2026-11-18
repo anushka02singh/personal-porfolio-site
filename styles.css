@@ -511,6 +511,9 @@ html:not(.js) .polaroid, html:not(.js) .project-card, html:not(.js) .project-row
 .thumb-12 { background: linear-gradient(135deg, #1c1236, #6a3aa0); }     /* amethyst — PeerConnect */
 .thumb-13 { background: linear-gradient(135deg, #3a1228, #b0486a); }     /* rose wine — Cafe Paris */
 .thumb-14 { background: linear-gradient(135deg, #120d24, #35508f); }     /* midnight blue — Craigslist */
+.thumb-15 { background: linear-gradient(135deg, #0f1f24, #2f6a68); }     /* deep teal — CardFlow */
+.thumb-16 { background: linear-gradient(135deg, #261831, #8a4a74); }     /* orchid — UI components */
+.thumb-17 { background: linear-gradient(135deg, #2b1040, #c0457d 70%, #e08a5a); } /* sunset — Insta */
 .thumb-8 { background: linear-gradient(135deg, #1e1226, #4a2440); }      /* deep aubergine — HR Site */
 
 /* a faint grain/vignette over every thumbnail so blocks read as a

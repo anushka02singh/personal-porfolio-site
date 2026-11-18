@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>UI Component Library — Anushka Singh</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="A small library of reusable components, link card, accordion and staff card, in plain HTML and CSS with shared design tokens and no JavaScript.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Space+Grotesk:wght@500;600;700&family=Caveat:wght@600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script>document.documentElement.classList.add("js")</script>
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav" aria-label="Primary">
+    <a class="nav-logo" href="index.html">A.</a>
+    <ul class="nav-links">
+      <li><a href="portfolio.html">All Projects</a></li>
+      <li><a href="index.html#lab">Design Lab</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main" class="case-wrap">
+  <a class="back-link" href="portfolio.html">&larr; Back to Archive</a>
+  <span class="case-status done">On GitHub</span>
+  <h1 class="case-title">UI Component Library</h1>
+  <div class="chips"><div class="chip"><span>Role</span><b>Designer &amp; Developer</b></div><div class="chip"><span>Type</span><b>Component library</b></div><div class="chip"><span>Context</span><b>Built from real site work</b></div><div class="chip"><span>Stack</span><b>Plain HTML &amp; CSS</b></div></div>
+
+  <div class="win">
+    <div class="win-bar">
+      <span class="win-title">ui-components.repo</span>
+      <span class="win-btns" aria-hidden="true"><i></i><i></i><i></i></span>
+    </div>
+    <div class="win-address">
+      <span class="win-path">C:\ARCHIVE\UI-COMPONENTS</span>
+      <span id="loadText">Loading&hellip;</span>
+      <span class="win-load" aria-hidden="true"><span></span></span>
+    </div>
+    <div class="win-main">
+      <div class="win-left" data-tabs>
+        <div class="tabs" role="tablist"><button class="tab" role="tab" type="button" id="tab0" aria-controls="panel0" aria-selected="true" tabindex="0">01 Overview</button><button class="tab" role="tab" type="button" id="tab1" aria-controls="panel1" aria-selected="false" tabindex="-1">02 What's Inside</button><button class="tab" role="tab" type="button" id="tab2" aria-controls="panel2" aria-selected="false" tabindex="-1">03 Status</button></div>
+          <div class="panel is-active" role="tabpanel" id="panel0" aria-labelledby="tab0">
+            <h2>Overview</h2>
+            <p>A small library of components I pulled out of real site work and cleaned up so they can be reused. Everything is plain HTML and CSS, which suits content editors that don't allow scripts, and everything is themed through a handful of shared design tokens.</p>
+          </div>
+          <div class="panel" role="tabpanel" id="panel1" aria-labelledby="tab1">
+            <h2>What's Inside</h2>
+            <ul><li><strong>Link card:</strong> a gallery index card where the whole card is clickable through one link</li><li><strong>Accordion:</strong> an FAQ accordion built on native details and summary elements, with no JavaScript</li><li><strong>Staff card:</strong> avatar (photo or initials), name, role and bio, with a full-width variant</li><li><strong>Design tokens:</strong> colors, spacing, radius and font in CSS variables, with the font inheriting from the host site so re-theming is a few lines</li></ul>
+          </div>
+          <div class="panel" role="tabpanel" id="panel2" aria-labelledby="tab2">
+            <h2>Status</h2>
+            <p>Published on GitHub with a demo page and a README for each component.</p>
+          </div>
+      </div>
+      <aside class="win-right">
+        <a class="case-banner-wrap" href="https://github.com/anushka02singh/ui-components" target="_blank" rel="noopener"><div class="case-banner thumb-16"></div><div class="case-banner-caption">ui components, on GitHub</div><span class="visit">View on GitHub &#8599;</span></a>
+        <div class="props">
+          <h3>Quick Facts</h3>
+          <dl><dt>Components</dt><dd>Link card, accordion, staff card</dd><dt>Tech</dt><dd>Plain HTML &amp; CSS, no JS</dd><dt>Theming</dt><dd>CSS variables (design tokens)</dd></dl>
+          <div class="props-actions"><a class="btn btn-primary" href="https://github.com/anushka02singh/ui-components" target="_blank" rel="noopener">View on GitHub &#8599;</a></div>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <nav class="case-nav" aria-label="More projects">
+    <a class="prev" href="cardflow.html"><small>&larr; Previous file</small><strong>CardFlow</strong></a>
+    <a class="all" href="portfolio.html"><small>Archive</small><strong>All projects</strong></a>
+    <a class="next" href="cafe-paris-redesign.html"><small>Next file &rarr;</small><strong>Cafe Paris</strong></a>
+  </nav>
+</main>
+
+<footer class="site-footer">
+  <p>&copy; <span id="year"></span> Anushka Singh.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
