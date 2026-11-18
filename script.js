@@ -88,9 +88,9 @@ if (contactForm && camera) {
 }
 
 // ---------- "Develop" reveal ----------
-const developables = document.querySelectorAll('.polaroid, .project-card, .project-row-thumb-wrap');
+const developables = document.querySelectorAll('.polaroid, .project-card, .project-row-thumb-wrap, .shot-frame');
 developables.forEach((el) => {
-  const host = el.closest('.hang, .project-card-link, .project-row') || el;
+  const host = el.closest('.hang, .project-card-link, .shot-link, .project-row') || el;
   const idx = Array.prototype.indexOf.call(host.parentElement.children, host);
   el.style.transitionDelay = `${(idx % 4) * 110}ms`;
 });
@@ -146,6 +146,19 @@ if (finePointer && !prefersReducedMotion) {
     });
   });
 }
+
+// ---------- Test shots: the focus square follows the cursor ----------
+document.querySelectorAll('.shot-view').forEach((v) => {
+  if (!finePointer || prefersReducedMotion) return;
+  const host = v.closest('.shot-link') || v;
+  v.addEventListener('pointermove', (e) => {
+    const r = v.getBoundingClientRect();
+    v.style.setProperty('--fx', (e.clientX - r.left) + 'px');
+    v.style.setProperty('--fy', (e.clientY - r.top) + 'px');
+  });
+  v.addEventListener('pointerleave', () => { v.style.removeProperty('--fx'); v.style.removeProperty('--fy'); });
+  host.addEventListener('pointerenter', (e) => sparkBurst(e.clientX, e.clientY));
+});
 
 // ---------- Ticker speeds up with scroll ----------
 const tickerTrack = document.querySelector('.ticker-track');

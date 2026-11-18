@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>HR &amp; Employment Resource Page — Anushka Singh</title>
+<title>HR & Employment Resource Site — Anushka Singh</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Rebuilding a broken HR & Employment resource page into clean, accessible link cards.">
+<meta name="description" content="Built a complete HR site from a simple Word document and an old page of buttons — rebuilt as a modern, simple, accessible site with its own look. Waiting on approval.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Space+Grotesk:wght@500;600;700&family=Caveat:wght@600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
@@ -18,6 +18,7 @@
     <a class="nav-logo" href="index.html">A.</a>
     <ul class="nav-links">
       <li><a href="portfolio.html">All Projects</a></li>
+      <li><a href="index.html#lab">Design Lab</a></li>
       <li><a href="index.html#contact">Contact</a></li>
     </ul>
   </nav>
@@ -25,9 +26,9 @@
 
 <main id="main" class="case-wrap">
   <a class="back-link" href="portfolio.html">&larr; Back to Archive</a>
-  <span class="case-status">Live</span>
-  <h1 class="case-title">HR &amp; Employment Resource Page</h1>
-  <div class="chips"><div class="chip"><span>Role</span><b>Website Manager</b></div><div class="chip"><span>Type</span><b>Department Page Rebuild &mdash; Plain HTML</b></div><div class="chip"><span>Timeline</span><b>2026</b></div><div class="chip"><span>Org</span><b>Student Affairs, Rutgers University</b></div></div>
+  <span class="case-status review">Awaiting Approval</span>
+  <h1 class="case-title">HR &amp; Employment Resource Site</h1>
+  <div class="chips"><div class="chip"><span>Role</span><b>Website Manager</b></div><div class="chip"><span>Type</span><b>Full Site Build &mdash; Drupal</b></div><div class="chip"><span>Timeline</span><b>2026</b></div><div class="chip"><span>Org</span><b>Student Affairs, Rutgers University</b></div></div>
 
   <div class="win">
     <div class="win-bar">
@@ -44,43 +45,30 @@
         <div class="tabs" role="tablist"><button class="tab" role="tab" type="button" id="tab0" aria-controls="panel0" aria-selected="true" tabindex="0">01 Overview</button><button class="tab" role="tab" type="button" id="tab1" aria-controls="panel1" aria-selected="false" tabindex="-1">02 What I Did</button><button class="tab" role="tab" type="button" id="tab2" aria-controls="panel2" aria-selected="false" tabindex="-1">03 Status</button></div>
           <div class="panel is-active" role="tabpanel" id="panel0" aria-labelledby="tab0">
             <h2>Overview</h2>
-            <p>A staff-facing resource page &mdash; HR &amp; Employment, Compliance &amp; Finance, Applications, Forms, Policies &amp; Procedures, and Professional Development &mdash; that had quietly broken over time: links running together with no bullets, sections split apart by stray leftover tags, and styling classes with nothing behind them. I rebuilt it from the markup up, in nothing but plain HTML and CSS, since the page's CMS field doesn't render a framework.</p>
+            <p>The department handed me a simple Word document: a list of what the site should hold, which referred back to an older site that was really just a page of buttons. I took that and built a full site from the ground up &mdash; modern, still simple and accessible, but unmistakably its own thing rather than a template.</p>
           </div>
           <div class="panel" role="tabpanel" id="panel1" aria-labelledby="tab1">
             <h2>What I Did</h2>
-            <ul>
-        <li>Diagnosed the actual cause of the uneven spacing and dead links: stray <code>&lt;hr&gt;</code> tags and empty paragraphs splitting a single list into several, leftover classes from an earlier framework version with no matching CSS behind them, and links sitting side by side in plain text with no bullet or anchor tag at all</li>
-        <li>Rebuilt every section into consistent <code>&lt;ul&gt;</code>/<code>&lt;li&gt;</code>/<code>&lt;a&gt;</code> markup so each link reads, bullets, and navigates correctly</li>
-        <li>Re-styled the cleaned-up lists as link cards &mdash; a left accent bar and a hover arrow &mdash; using only flexbox and basic transitions so it would render as intended inside the CMS's Full HTML field, with no JavaScript required</li>
-      </ul>
+            <ul><li>Built the whole site from the Word document &mdash; page structure, layout and content organization</li><li>Created a row of four large quick-action buttons for the tasks people come for: <strong>myRutgers Portal</strong>, <strong>Position Request</strong>, <strong>Division Absence</strong> and <strong>Contact SA HR Director</strong></li><li>Laid out the <strong>University Department</strong> section in three columns: HR &amp; Employment and Compliance &amp; Finance as lists of link cards with a hover arrow, with a building illustration anchoring the middle</li><li>Wrote everything in plain HTML and CSS using flexbox, because the CMS editor strips scripts, and kept the markup semantic: real headings, real lists, real links, large click targets</li></ul>
           </div>
           <div class="panel" role="tabpanel" id="panel2" aria-labelledby="tab2">
             <h2>Status</h2>
-            <p>Live as part of the department's HR &amp; Employment resources page.</p>
+            <p>Finished and waiting on the department's approval. It's on a Pantheon dev site, so it isn't public yet.</p>
           </div>
       </div>
       <aside class="win-right">
-        <div class="case-banner-wrap">
-          <div class="case-banner thumb-8"></div>
-          <div class="case-banner-caption">broken lists, filed straight</div>
-        </div>
+        <div class="case-banner-wrap is-locked"><div class="case-banner thumb-8"></div><span class="stamp">Not public yet</span><div class="case-banner-caption">HR site, in review</div></div>
         <div class="props">
           <h3>Quick Facts</h3>
-          <dl>
-        <dt>Department</dt>
-        <dd>Student Affairs, Rutgers University</dd>
-        <dt>Constraint</dt>
-        <dd>Plain HTML/CSS only &mdash; CMS field strips scripts</dd>
-        <dt>Status</dt>
-        <dd>Live, ongoing</dd>
-      </dl>
+          <dl><dt>Department</dt><dd>Student Affairs, Rutgers University</dd><dt>Source</dt><dd>A simple Word document + the older buttons-only site</dd><dt>Platform</dt><dd>Drupal on Pantheon</dd><dt>Constraint</dt><dd>Plain HTML/CSS only &mdash; the editor strips scripts</dd><dt>Status</dt><dd>Awaiting approval, not public yet</dd></dl>
+          
         </div>
       </aside>
     </div>
   </div>
 
   <nav class="case-nav" aria-label="More projects">
-    <a class="prev" href="fellowship-project.html"><small>&larr; Previous file</small><strong>Fellowship Project</strong></a>
+    <a class="prev" href="business-office-student-affairs.html"><small>&larr; Previous file</small><strong>Business Office</strong></a>
     <a class="all" href="portfolio.html"><small>Archive</small><strong>All projects</strong></a>
     <a class="next" href="rutgers-club-website.html"><small>Next file &rarr;</small><strong>Rutgers Club Site</strong></a>
   </nav>

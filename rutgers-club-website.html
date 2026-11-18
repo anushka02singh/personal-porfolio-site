@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <title>Rutgers Club Website — Anushka Singh</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Hero banner, menu, and staff directory rebuild for The Rutgers Club's website.">
+<meta name="description" content="An existing WordPress site moved to Drupal. The content had to transfer 1-to-1, so the fresh feel comes from new UI on top. Waiting on approval.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Space+Grotesk:wght@500;600;700&family=Caveat:wght@600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
@@ -18,6 +18,7 @@
     <a class="nav-logo" href="index.html">A.</a>
     <ul class="nav-links">
       <li><a href="portfolio.html">All Projects</a></li>
+      <li><a href="index.html#lab">Design Lab</a></li>
       <li><a href="index.html#contact">Contact</a></li>
     </ul>
   </nav>
@@ -25,9 +26,9 @@
 
 <main id="main" class="case-wrap">
   <a class="back-link" href="portfolio.html">&larr; Back to Archive</a>
-  <span class="case-status">Live</span>
+  <span class="case-status review">Awaiting Approval</span>
   <h1 class="case-title">Rutgers Club Website</h1>
-  <div class="chips"><div class="chip"><span>Role</span><b>Website Manager</b></div><div class="chip"><span>Type</span><b>Hero, Menu &amp; Directory Rebuild</b></div><div class="chip"><span>Timeline</span><b>2026</b></div><div class="chip"><span>Org</span><b>The Rutgers Club, Rutgers University</b></div></div>
+  <div class="chips"><div class="chip"><span>Role</span><b>Website Manager</b></div><div class="chip"><span>Type</span><b>WordPress &rarr; Drupal Migration</b></div><div class="chip"><span>Timeline</span><b>2026</b></div><div class="chip"><span>Org</span><b>The Rutgers Club, Rutgers University</b></div></div>
 
   <div class="win">
     <div class="win-bar">
@@ -44,46 +45,32 @@
         <div class="tabs" role="tablist"><button class="tab" role="tab" type="button" id="tab0" aria-controls="panel0" aria-selected="true" tabindex="0">01 Overview</button><button class="tab" role="tab" type="button" id="tab1" aria-controls="panel1" aria-selected="false" tabindex="-1">02 What I Did</button><button class="tab" role="tab" type="button" id="tab2" aria-controls="panel2" aria-selected="false" tabindex="-1">03 Status</button></div>
           <div class="panel is-active" role="tabpanel" id="panel0" aria-labelledby="tab0">
             <h2>Overview</h2>
-            <p>A multi-part refresh of The Rutgers Club's site &mdash; the membership dining club's homepage banner, drink-and-dining menu, and board &amp; staff directory. Everything was written as plain HTML and CSS meant to paste directly into the site's Drupal CKEditor field, since the theme has no support for JavaScript or front-end frameworks on the front end.</p>
+            <p>The Rutgers Club had an existing site on WordPress that needed to be migrated to Drupal. The content had to be transferred one-to-one, so the wording and structure stayed true to the original. What I could change was the interface: I designed new UI so the site still looks and feels fresh, rather than a straight copy.</p>
           </div>
           <div class="panel" role="tabpanel" id="panel1" aria-labelledby="tab1">
             <h2>What I Did</h2>
-            <ul>
-        <li>Rebuilt the homepage hero banner's floating text panel &mdash; the membership message plus "Learn More" and "View Menus" buttons &mdash; repositioning and resizing it against the live venue photo through several rounds until it no longer covered the club's name in the image</li>
-        <li>Converted a six-category menu (Lunch Buffet, Bar, Catering, Wine, Beer, Signature Cocktails) into one tabbed page built entirely from CSS &mdash; hidden radio inputs and labels, no JavaScript &mdash; and checked it at both desktop and phone widths before handing it off</li>
-        <li>Rebuilt the Board &amp; Staff directory from inconsistent source copy into uniform cards: cropped headshots where photos existed, initials avatars where they didn't, with titles and bios cleaned up and correctly attributed to the right person</li>
-        <li>Wrote and formatted the Announcements section &mdash; seasonal event postings, private-event closure notices, and a linked event request form &mdash; to match the rest of the site's structure</li>
-      </ul>
+            <ul><li>Transferred the content from WordPress to Drupal one-to-one</li><li>Built a new homepage hero banner with a floating text panel and &ldquo;Learn More&rdquo; and &ldquo;View Menus&rdquo; buttons, positioned against the venue photo over several rounds so it doesn't cover the club's name</li><li>Turned a six-category menu (Lunch Buffet, Bar, Catering, Wine, Beer, Signature Cocktails) into one tabbed page built entirely from CSS &mdash; hidden radio inputs and labels, no JavaScript &mdash; and checked it at desktop and phone widths</li><li>Rebuilt the Board &amp; Staff directory into uniform cards: cropped headshots where photos existed, initials avatars where they didn't</li><li>Wrote and formatted the Announcements section to match the rest of the site</li></ul>
           </div>
           <div class="panel" role="tabpanel" id="panel2" aria-labelledby="tab2">
             <h2>Status</h2>
-            <p>Live, delivered section by section as each piece was approved and pasted in by the club's own staff.</p>
+            <p>Finished and awaiting approval. It's on a Pantheon dev site, so it isn't live yet.</p>
           </div>
       </div>
       <aside class="win-right">
-        <div class="case-banner-wrap">
-          <div class="case-banner thumb-7"></div>
-          <div class="case-banner-caption">the club, rebuilt in pieces</div>
-        </div>
+        <div class="case-banner-wrap is-locked"><div class="case-banner thumb-7"></div><span class="stamp">Not public yet</span><div class="case-banner-caption">the club, in review</div></div>
         <div class="props">
           <h3>Quick Facts</h3>
-          <dl>
-        <dt>Organization</dt>
-        <dd>The Rutgers Club</dd>
-        <dt>Constraint</dt>
-        <dd>Plain HTML/CSS only &mdash; no JS, no framework</dd>
-        <dt>Status</dt>
-        <dd>Live, ongoing</dd>
-      </dl>
+          <dl><dt>Organization</dt><dd>The Rutgers Club</dd><dt>Source</dt><dd>Existing WordPress site</dd><dt>Platform</dt><dd>Drupal on Pantheon</dd><dt>Constraint</dt><dd>Plain HTML/CSS only &mdash; no JS, no framework</dd><dt>Status</dt><dd>Awaiting approval, not live yet</dd></dl>
+          
         </div>
       </aside>
     </div>
   </div>
 
   <nav class="case-nav" aria-label="More projects">
-    <a class="prev" href="rutgers-hr-site.html"><small>&larr; Previous file</small><strong>HR Resource Page</strong></a>
+    <a class="prev" href="rutgers-hr-site.html"><small>&larr; Previous file</small><strong>HR Resource Site</strong></a>
     <a class="all" href="portfolio.html"><small>Archive</small><strong>All projects</strong></a>
-    <a class="next" href="rutgers-welcome-week.html"><small>Next file &rarr;</small><strong>Welcome Week Site</strong></a>
+    <a class="next" href="njhemhs-2027.html"><small>Next file &rarr;</small><strong>NJHEMHS 2027</strong></a>
   </nav>
 </main>
 
