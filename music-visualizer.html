@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Music Visualizer — Anushka Singh</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="A web app that listens to your microphone, detects the musical note in real time and grows an animated generative flower for every note.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Space+Grotesk:wght@500;600;700&family=Caveat:wght@600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script>document.documentElement.classList.add("js")</script>
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav" aria-label="Primary">
+    <a class="nav-logo" href="index.html">A.</a>
+    <ul class="nav-links">
+      <li><a href="portfolio.html">All Projects</a></li>
+      <li><a href="index.html#lab">Design Lab</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main" class="case-wrap">
+  <a class="back-link" href="portfolio.html">&larr; Back to Archive</a>
+  <span class="case-status done">Course Project</span>
+  <h1 class="case-title">Music Visualizer</h1>
+  <div class="chips"><div class="chip"><span>Role</span><b>Designer &amp; Developer</b></div><div class="chip"><span>Type</span><b>Generative web app</b></div><div class="chip"><span>Context</span><b>Web Programming course</b></div><div class="chip"><span>Stack</span><b>Next.js &middot; p5.js &middot; Web Audio</b></div></div>
+
+  <div class="win">
+    <div class="win-bar">
+      <span class="win-title">music-visualizer.repo</span>
+      <span class="win-btns" aria-hidden="true"><i></i><i></i><i></i></span>
+    </div>
+    <div class="win-address">
+      <span class="win-path">C:\ARCHIVE\MUSIC-VISUALIZER</span>
+      <span id="loadText">Loading&hellip;</span>
+      <span class="win-load" aria-hidden="true"><span></span></span>
+    </div>
+    <div class="win-main">
+      <div class="win-left" data-tabs>
+        <div class="tabs" role="tablist"><button class="tab" role="tab" type="button" id="tab0" aria-controls="panel0" aria-selected="true" tabindex="0">01 Overview</button><button class="tab" role="tab" type="button" id="tab1" aria-controls="panel1" aria-selected="false" tabindex="-1">02 How It Works</button><button class="tab" role="tab" type="button" id="tab2" aria-controls="panel2" aria-selected="false" tabindex="-1">03 What I Built</button><button class="tab" role="tab" type="button" id="tab3" aria-controls="panel3" aria-selected="false" tabindex="-1">04 Credit &amp; Status</button></div>
+          <div class="panel is-active" role="tabpanel" id="panel0" aria-labelledby="tab0">
+            <h2>Overview</h2>
+            <p>A Next.js/React application that listens to live microphone input, detects the musical pitch being played or sung in real time, and renders animated generative flowers on a canvas. Each flower's position and appearance is driven by the detected note. I built it for an exercise in my graduate Web Programming course at Rutgers.</p>
+          </div>
+          <div class="panel" role="tabpanel" id="panel1" aria-labelledby="tab1">
+            <h2>How It Works</h2>
+            <ul><li>The app asks for microphone access through the Web Audio API</li><li>Live audio goes into a pitch-detection model that identifies the note (C through B)</li><li>Each note maps to a horizontal position along a chromatic scale</li><li>A p5.js sketch draws an animated flower at that position, which fades and shrinks over time to make a continuously evolving visualization</li></ul>
+          </div>
+          <div class="panel" role="tabpanel" id="panel2" aria-labelledby="tab2">
+            <h2>What I Built</h2>
+            <ul><li>The full React/Next.js application structure</li><li>All of the pitch-to-visual mapping logic, turning detected notes into canvas coordinates</li><li>The p5.js flower system: procedural petal geometry, color, and fade-and-decay animation</li><li>The Web Audio microphone stream wired into React state and lifecycle hooks (<code>useState</code>, <code>useEffect</code>, <code>useRef</code>)</li><li>Real-time state updates for many simultaneous animated elements</li></ul>
+          </div>
+          <div class="panel" role="tabpanel" id="panel3" aria-labelledby="tab3">
+            <h2>Credit &amp; Status</h2>
+            <p>The pitch-detection utility was provided as course starter code by the instructor and used with attribution. It isn't included in the repository, so the repo shows my own code (the React components, canvas rendering, animation and note-to-visual mapping) built on top of it. Published on GitHub.</p>
+          </div>
+      </div>
+      <aside class="win-right">
+        <a class="case-banner-wrap" href="https://github.com/anushka02singh/music-visualizer" target="_blank" rel="noopener"><div class="case-banner thumb-18"></div><div class="case-banner-caption">music visualizer, on GitHub</div><span class="visit">View on GitHub &#8599;</span></a>
+        <div class="props">
+          <h3>Quick Facts</h3>
+          <dl><dt>Framework</dt><dd>Next.js / React</dd><dt>Graphics</dt><dd>p5.js</dd><dt>Audio</dt><dd>Web Audio API</dd><dt>Credit</dt><dd>Pitch-detection starter code from the course</dd></dl>
+          <div class="props-actions"><a class="btn btn-primary" href="https://github.com/anushka02singh/music-visualizer" target="_blank" rel="noopener">View on GitHub &#8599;</a></div>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <nav class="case-nav" aria-label="More projects">
+    <a class="prev" href="ui-components.html"><small>&larr; Previous file</small><strong>UI Components</strong></a>
+    <a class="all" href="portfolio.html"><small>Archive</small><strong>All projects</strong></a>
+    <a class="next" href="info-tech-term-project.html"><small>Next file &rarr;</small><strong>Info Tech Term Project</strong></a>
+  </nav>
+</main>
+
+<footer class="site-footer">
+  <p>&copy; <span id="year"></span> Anushka Singh.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

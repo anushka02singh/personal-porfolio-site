@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <title>PeerConnect — Anushka Singh</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="My final project from last semester's design class: a mobile app concept for Rutgers students, taken all the way to an interactive Figma prototype.">
+<meta name="description" content="One app for everything academic: a mobile super-app for Rutgers students, with a home dashboard and a study hub. Researched, designed and prototyped end to end in Figma.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Space+Grotesk:wght@500;600;700&family=Caveat:wght@600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
@@ -26,9 +26,9 @@
 
 <main id="main" class="case-wrap">
   <a class="back-link" href="portfolio.html">&larr; Back to Archive</a>
-  <span class="case-status done">Class Final Project</span>
+  <span class="case-status done">HCD Final Project &middot; Spring 2026</span>
   <h1 class="case-title">PeerConnect</h1>
-  <div class="chips"><div class="chip"><span>Role</span><b>UX/UI Designer</b></div><div class="chip"><span>Type</span><b>Mobile App Prototype</b></div><div class="chip"><span>Context</span><b>Class final project</b></div><div class="chip"><span>Tool</span><b>Figma</b></div></div>
+  <div class="chips"><div class="chip"><span>Role</span><b>Sole UX/UI Designer</b></div><div class="chip"><span>Type</span><b>iOS Mobile App</b></div><div class="chip"><span>Timeline</span><b>Spring 2026</b></div><div class="chip"><span>Tools</span><b>Figma, FigJam</b></div></div>
 
   <div class="win">
     <div class="win-bar">
@@ -42,33 +42,41 @@
     </div>
     <div class="win-main">
       <div class="win-left" data-tabs>
-        <div class="tabs" role="tablist"><button class="tab" role="tab" type="button" id="tab0" aria-controls="panel0" aria-selected="true" tabindex="0">01 Overview</button><button class="tab" role="tab" type="button" id="tab1" aria-controls="panel1" aria-selected="false" tabindex="-1">02 What I Did</button><button class="tab" role="tab" type="button" id="tab2" aria-controls="panel2" aria-selected="false" tabindex="-1">03 Status</button></div>
+        <div class="tabs" role="tablist"><button class="tab" role="tab" type="button" id="tab0" aria-controls="panel0" aria-selected="true" tabindex="0">01 Overview</button><button class="tab" role="tab" type="button" id="tab1" aria-controls="panel1" aria-selected="false" tabindex="-1">02 Research</button><button class="tab" role="tab" type="button" id="tab2" aria-controls="panel2" aria-selected="false" tabindex="-1">03 Design Focus</button><button class="tab" role="tab" type="button" id="tab3" aria-controls="panel3" aria-selected="false" tabindex="-1">04 Process</button><button class="tab" role="tab" type="button" id="tab4" aria-controls="panel4" aria-selected="false" tabindex="-1">05 Next Steps</button></div>
           <div class="panel is-active" role="tabpanel" id="panel0" aria-labelledby="tab0">
             <h2>Overview</h2>
-            <p>PeerConnect was my final project last semester: a mobile app concept for Rutgers students, designed and carried through to an interactive prototype in Figma. It's one of the pieces of design work I'm proudest of.</p>
+            <p>PeerConnect is a mobile super-app designed to replace the five or six disconnected tools Rutgers students juggle every day. It started as an idea in an undergraduate HCI class, and in the final weeks of my human-centered design course I turned it into a full high-fidelity prototype in Figma, following the process from research through to an interactive, clickable product.</p><p>The question that drove it: <em>how might we design a mobile app that helps Rutgers students stay on top of their academic workload and actively prepare for it, all in one place, without bouncing between five different tools?</em></p><ul><li><strong>Role:</strong> sole UX/UI designer</li><li><strong>Platform:</strong> iOS mobile app</li><li><strong>Focus:</strong> Home Dashboard + Study Hub</li><li><strong>Prototype:</strong> 3 flows, 14 screens (onboarding, home dashboard, study hub)</li></ul>
           </div>
           <div class="panel" role="tabpanel" id="panel1" aria-labelledby="tab1">
-            <h2>What I Did</h2>
-            <ul><li>Designed the app's screens and flows end to end in Figma</li><li>Built an interactive prototype you can click through yourself</li><li>Presented it as the final deliverable for the class</li></ul>
+            <h2>Research</h2>
+            <p>Students are drowning in too many tabs: Canvas for assignments, Google Calendar for scheduling, GroupMe for coordinating, Quizlet for studying, email for announcements. None of them talk to each other. Before designing anything I looked at the tools students already use to see where the gaps are.</p><div class="table-wrap"><table><thead><tr><th>Tool</th><th>What it does</th><th>What's missing</th></tr></thead><tbody><tr><td>Canvas LMS</td><td>Assignments, grades, announcements</td><td>No peer connection; poor mobile UX</td></tr><tr><td>Rutgers App</td><td>Maps, bus, dining, basic course info</td><td>No study tools; no Canvas sync</td></tr><tr><td>Quizlet</td><td>Flashcards, practice tests</td><td>No scheduling; completely siloed</td></tr><tr><td>GroupMe / Discord</td><td>Group messaging, community</td><td>No academic structure; no Canvas sync</td></tr><tr><td>Google Calendar</td><td>Scheduling, reminders</td><td>Not academic-specific; used separately</td></tr></tbody></table></div><p>The takeaway: no single tool combines academic organization with study resources, so students stitch them together themselves. That friction is the design problem.</p><p>I also surveyed Rutgers students on how they use these tools, where deadline management hurts, and how they study. The key finding: students want one place for everything, not another app to switch between.</p>
           </div>
           <div class="panel" role="tabpanel" id="panel2" aria-labelledby="tab2">
-            <h2>Status</h2>
-            <p>Completed. Open the prototype to click through it.</p>
+            <h2>Design Focus</h2>
+            <p>The original vision was ambitious: peer matching, social features, notifications and Canvas integration. Based on feedback I narrowed the final scope to two features that form a complete user journey on their own.</p><ul><li><strong>Home Dashboard:</strong> the command center. Upcoming deadlines pulled from Canvas, a daily and weekly view, and smart nudges for what's most urgent. The challenge: surface the most important thing without overwhelming the student.</li><li><strong>Study Hub:</strong> the action layer. Flashcards, practice tests, a collaborative guide editor and a quiz game mode, all tied to specific courses. The challenge: make studying feel less like a chore inside the app you use to check deadlines.</li></ul><p>Peer matching, friends and notifications moved to future work. That's not shrinking the vision, it's being intentional about what gets designed well.</p><p><strong>Key design decisions</strong></p><ul><li><strong>Urgency without anxiety:</strong> deadline cards use red, amber and green urgency bars alongside text labels, never color alone, so the dashboard can be scanned in seconds</li><li><strong>Dashboard to study in one tap:</strong> the nudge card links straight into an active study session, and each deadline links into the Study Hub for that course</li><li><strong>Study tools that feel light:</strong> flashcards show a mastery progress strip, so students see how far they've come, not just how far they have to go</li><li><strong>Collaboration built in:</strong> the collaborative study guide is the first thing in the Study Hub, with live contributor avatars and an inline comment thread</li><li><strong>Canvas as infrastructure:</strong> PeerConnect doesn't replace Canvas, it syncs deadlines, grades and course data so students never re-enter anything</li><li><strong>Dark theme by default:</strong> students use apps late at night before exams, so a dark navy theme reduces eye strain when the app is used most</li></ul>
+          </div>
+          <div class="panel" role="tabpanel" id="panel3" aria-labelledby="tab3">
+            <h2>Process</h2>
+            <ul><li><strong>Weeks 1&ndash;2, Market research:</strong> analyzed five competing tools to map where existing solutions fall short</li><li><strong>Weeks 3&ndash;4, User research:</strong> surveyed Rutgers students about tool usage, deadline pain points and study habits</li><li><strong>Week 5, Synthesize and define:</strong> organized findings into themes, created two personas and mapped a journey from &ldquo;checking what's due&rdquo; to &ldquo;actually studying for it&rdquo;</li><li><strong>Weeks 6&ndash;10, Prototype:</strong> built the high-fidelity interactive prototype in Figma: onboarding, the home dashboard (Today, This Week and Canvas views) and the full Study Hub flow with flashcards, practice tests and the collaborative guide</li><li><strong>Weeks 11&ndash;14, Test and iterate:</strong> usability testing with Rutgers students, focused on whether the dashboard hierarchy made urgency clear and whether students could move from deadline awareness to active studying without friction</li></ul>
+          </div>
+          <div class="panel" role="tabpanel" id="panel4" aria-labelledby="tab4">
+            <h2>Next Steps</h2>
+            <p>The two core features form a complete, usable product on their own, and the foundation is built to support the rest of the original vision:</p><ul><li>Peer matching by course</li><li>Friends and social layer</li><li>Unified notifications</li><li>Grade tracking dashboard</li><li>Multiplayer quiz mode</li><li>Accessibility audit (WCAG AA)</li><li>Android version</li><li>A second round of usability testing</li></ul><p>The most valuable next step is usability testing with real Rutgers students, not to validate the design but to find where it breaks down.</p>
           </div>
       </div>
       <aside class="win-right">
         <a class="case-banner-wrap" href="https://www.figma.com/proto/c2qkM8m3z74KZGv7iIkMqI/PeerConnect_Final?node-id=0-1&t=mPSsyipnVCFa4a4U-1" target="_blank" rel="noopener"><div class="case-banner thumb-12"></div><div class="case-banner-caption">peerconnect, final</div><span class="visit">Open the prototype &#8599;</span></a>
         <div class="props">
           <h3>Quick Facts</h3>
-          <dl><dt>Course</dt><dd>Design class &mdash; final project</dd><dt>Deliverable</dt><dd>Interactive Figma prototype</dd><dt>Status</dt><dd>Complete</dd></dl>
-          <div class="props-actions"><a class="btn btn-primary" href="https://www.figma.com/proto/c2qkM8m3z74KZGv7iIkMqI/PeerConnect_Final?node-id=0-1&t=mPSsyipnVCFa4a4U-1" target="_blank" rel="noopener">Open the prototype &#8599;</a></div>
+          <dl><dt>Course</dt><dd>Human-centered design (HCD), final project</dd><dt>Role</dt><dd>Sole UX/UI designer</dd><dt>Tools</dt><dd>Figma, FigJam</dd><dt>Deliverable</dt><dd>Interactive prototype + case study</dd><dt>Status</dt><dd>Complete</dd></dl>
+          <div class="props-actions"><a class="btn btn-primary" href="https://www.figma.com/proto/c2qkM8m3z74KZGv7iIkMqI/PeerConnect_Final?node-id=0-1&t=mPSsyipnVCFa4a4U-1" target="_blank" rel="noopener">Open the prototype &#8599;</a><a class="btn btn-ghost" href="https://github.com/anushka02singh/peerconnect" target="_blank" rel="noopener">Read the case study &#8599;</a></div>
         </div>
       </aside>
     </div>
   </div>
 
   <nav class="case-nav" aria-label="More projects">
-    <a class="prev" href="freelance-doctor-website.html"><small>&larr; Previous file</small><strong>Doctor Website</strong></a>
+    <a class="prev" href="zingers.html"><small>&larr; Previous file</small><strong>Zingers</strong></a>
     <a class="all" href="portfolio.html"><small>Archive</small><strong>All projects</strong></a>
     <a class="next" href="fellowship-project.html"><small>Next file &rarr;</small><strong>Fellowship Project</strong></a>
   </nav>

@@ -514,6 +514,10 @@ html:not(.js) .polaroid, html:not(.js) .project-card, html:not(.js) .project-row
 .thumb-15 { background: linear-gradient(135deg, #0f1f24, #2f6a68); }     /* deep teal — CardFlow */
 .thumb-16 { background: linear-gradient(135deg, #261831, #8a4a74); }     /* orchid — UI components */
 .thumb-17 { background: linear-gradient(135deg, #2b1040, #c0457d 70%, #e08a5a); } /* sunset — Insta */
+.thumb-18 { background: linear-gradient(135deg, #1b0e2b, #5b2f8f 60%, #c0457d); } /* bloom — Music Visualizer */
+.thumb-19 { background: linear-gradient(135deg, #151833, #3f5391); }     /* steel violet — Info Tech */
+.thumb-20 { background: linear-gradient(135deg, #2a0f1a, #a3283e); }     /* rec red — Rec2Go */
+.thumb-21 { background: linear-gradient(135deg, #1a1030, #7a3fc0 55%, #e0509f); } /* spark — Zingers */
 .thumb-8 { background: linear-gradient(135deg, #1e1226, #4a2440); }      /* deep aubergine — HR Site */
 
 /* a faint grain/vignette over every thumbnail so blocks read as a
@@ -1362,3 +1366,39 @@ a.case-banner-wrap { display: block; color: inherit; }
   .project-grid { gap: 36px 24px; justify-content: center; }
   .project-card-link { width: 260px; }
 }
+
+/* background-clip:text clips descenders (g, p, y) at tight line-heights: give them room */
+.section-head h2, .contact-head h2 { line-height: 1.12; padding-bottom: 0.1em; }
+.case-title { line-height: 1.05; padding-bottom: 0.12em; }
+.hero-copy h1 { padding-bottom: 0.12em; }
+.now h3 { line-height: 1.15; padding-bottom: 0.08em; }
+
+.btn-ghost { background: transparent; color: var(--text); border-color: rgba(200,169,240,0.5); border-radius: 999px; }
+.btn-ghost:hover { transform: translateY(-2px); border-color: var(--accent); color: #fff; }
+.props-actions { display: flex; flex-direction: column; gap: 10px; }
+.props-actions .btn { padding: 13px 18px; }
+.table-wrap { overflow-x: auto; margin: 0 0 18px; }
+.panel table { width: 100%; border-collapse: collapse; font-size: 0.86rem; }
+.panel th, .panel td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
+.panel th { font-family: var(--font-mono); font-size: 0.64rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-soft); }
+.panel td { color: var(--text-muted); }
+.panel td:first-child { color: var(--text); font-weight: 500; }
+.panel code { font-family: var(--font-mono); font-size: 0.85em; color: var(--accent-soft); }
+.panel em { color: var(--text); }
+
+/* Design Lab: viewfinders on top, polaroids in their own row */
+.lab-group { max-width: var(--max-width); margin: 0 auto 70px; padding: 0 24px; position: relative; z-index: 2; }
+.lab-group .project-grid { padding: 0; }
+.lab-label { font-family: var(--font-mono); font-size: 0.74rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); margin: 0 0 24px; }
+.lab-label span { color: var(--text-muted); letter-spacing: 0.08em; text-transform: none; }
+.shot-row { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 22px; }
+.shot-row .shot-link { width: auto; }
+.shot-row .shot-view { height: 140px; }
+.shot-row .shot-frame { padding: 8px; }
+.shot-row .shot-hud { font-size: 0.5rem; letter-spacing: 0.1em; }
+.shot-row .shot-hud.br { display: none; }
+.shot-row .shot-meta h3 { font-size: 1rem; }
+.shot-row .shot-meta p { font-size: 0.8rem; }
+@media (max-width: 1000px) { .shot-row { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 680px) { .shot-row { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 440px) { .shot-row { grid-template-columns: 1fr; } }
