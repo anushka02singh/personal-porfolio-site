@@ -9,6 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Space+Grotesk:wght@500;600;700&family=Caveat:wght@600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<script>document.documentElement.classList.add("js")</script>
 </head>
 <body>
 
@@ -38,6 +39,14 @@
       <p class="hero-role">Web designer and developer, finishing a Master of Information in HCI at Rutgers. For the past few years I've built, rebuilt and kept accurate the websites for 20+ university departments, plus freelance clients since 2017. This site is my archive: every project filed like a photograph, with what I was handed, what I did, and where it stands now.</p>
       <a class="btn btn-primary" href="portfolio.html">Open the Archive &rarr;</a>
     </div>
+    <div class="hero-badge" aria-hidden="true">
+      <svg viewBox="0 0 200 200"><defs><path id="circ" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0"/></defs>
+        <text><textPath href="#circ" textLength="486" lengthAdjust="spacing">WEB DESIGN ✦ HCI ✦ RUTGERS ✦ DRUPAL ✦ </textPath></text></svg>
+      <span class="badge-star">✦</span>
+    </div>
+    <span class="twinkle t1" aria-hidden="true">✦</span>
+    <span class="twinkle t2" aria-hidden="true">✧</span>
+    <span class="twinkle t3" aria-hidden="true">✦</span>
   </section>
 
   <!-- DARKROOM CLOTHESLINE — most recent work, hung up to dry -->
@@ -73,6 +82,9 @@
       </div>
     </div>
   </div>
+
+  <!-- TICKER -->
+  <div class="ticker" aria-hidden="true"><div class="ticker-track"><span>WEB DESIGN</span><b>✦</b><span>DRUPAL</span><b>✦</b><span>HTML &amp; CSS</span><b>✦</b><span>UX RESEARCH</span><b>✦</b><span>FIGMA</span><b>✦</b><span>HCI</span><b>✦</b><span>MIGRATIONS</span><b>✦</b><span>WEB DESIGN</span><b>✦</b><span>DRUPAL</span><b>✦</b><span>HTML &amp; CSS</span><b>✦</b><span>UX RESEARCH</span><b>✦</b><span>FIGMA</span><b>✦</b><span>HCI</span><b>✦</b><span>MIGRATIONS</span><b>✦</b><span>WEB DESIGN</span><b>✦</b><span>DRUPAL</span><b>✦</b><span>HTML &amp; CSS</span><b>✦</b><span>UX RESEARCH</span><b>✦</b><span>FIGMA</span><b>✦</b><span>HCI</span><b>✦</b><span>MIGRATIONS</span><b>✦</b><span>WEB DESIGN</span><b>✦</b><span>DRUPAL</span><b>✦</b><span>HTML &amp; CSS</span><b>✦</b><span>UX RESEARCH</span><b>✦</b><span>FIGMA</span><b>✦</b><span>HCI</span><b>✦</b><span>MIGRATIONS</span><b>✦</b></div></div>
 
   <!-- PORTFOLIO -->
   <section class="portfolio" id="portfolio">
@@ -161,68 +173,124 @@
   <!-- EXPERIENCE -->
   <section class="experience" id="experience">
     <div class="section-head">
-      <p class="eyebrow">Career So Far</p>
       <h2>Experience</h2>
+      <p class="section-lede">Press play. Five tracks, most recent first.</p>
     </div>
 
-    <ol class="timeline">
-      <li class="timeline-item">
-        <span class="timeline-date">2025&ndash;Present</span>
-        <h3>Website Manager</h3>
-        <p>Student Affairs, Rutgers University — own the higher-complexity builds across 20+ department sites and coordinate the interns handling the rest.</p>
+    <div class="deck">
+      <div class="player" id="player">
+        <div class="vinyl" aria-hidden="true"><div class="vinyl-label"><span id="vYears">2025–Now</span></div></div>
+        <div class="now">
+          <p class="now-tag">Now playing <span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span></p>
+          <h3 id="nowTitle">Website Manager</h3>
+          <p class="now-org" id="nowOrg">Student Affairs, Rutgers University</p>
+          <p class="now-desc" id="nowDesc" aria-live="polite"></p>
+          <div class="axis" aria-hidden="true"><span id="axisFill"></span></div>
+          <div class="axis-labels" aria-hidden="true"><span>2017</span><span>2020</span><span>2023</span><span>Now</span></div>
+          <div class="controls">
+            <button class="ctl" type="button" id="prevBtn" aria-label="Previous role">&laquo;</button>
+            <button class="ctl play" type="button" id="playBtn" aria-label="Play or pause">&#10074;&#10074;</button>
+            <button class="ctl" type="button" id="nextBtn" aria-label="Next role">&raquo;</button>
+          </div>
+        </div>
+      </div>
+
+      <ol class="tracklist" id="tracklist">
+      <li class="track is-active" data-start="2025" data-end="2027">
+        <button class="track-btn" type="button" aria-current="true">
+          <span class="tn">01</span>
+          <span class="tt"><strong>Website Manager</strong><small>Student Affairs, Rutgers University</small></span>
+          <span class="tmeta"><span class="tyr">2025–Now</span><span class="tspan"><i style="--l:80%;--w:20%"></i></span></span>
+        </button>
+        <p class="track-desc">Own the higher-complexity builds across 20+ department sites and coordinate the interns handling the rest.</p>
       </li>
-      <li class="timeline-item">
-        <span class="timeline-date">2022&ndash;2025</span>
-        <h3>Web Design Intern</h3>
-        <p>Student Affairs, Rutgers University — designed, built, and migrated department sites from WordPress to Drupal.</p>
+      <li class="track" data-start="2022" data-end="2025">
+        <button class="track-btn" type="button" aria-current="false">
+          <span class="tn">02</span>
+          <span class="tt"><strong>Web Design Intern</strong><small>Student Affairs, Rutgers University</small></span>
+          <span class="tmeta"><span class="tyr">2022–2025</span><span class="tspan"><i style="--l:50%;--w:30%"></i></span></span>
+        </button>
+        <p class="track-desc">Designed, built, and migrated department sites from WordPress to Drupal.</p>
       </li>
-      <li class="timeline-item">
-        <span class="timeline-date">2024&ndash;2025</span>
-        <h3>Web Design Intern</h3>
-        <p>YesMiss, Inc. — sole point of contact for a non-profit's website, keeping programs and volunteer listings current.</p>
+      <li class="track" data-start="2024" data-end="2025">
+        <button class="track-btn" type="button" aria-current="false">
+          <span class="tn">03</span>
+          <span class="tt"><strong>Web Design Intern</strong><small>YesMiss, Inc.</small></span>
+          <span class="tmeta"><span class="tyr">2024–2025</span><span class="tspan"><i style="--l:70%;--w:10%"></i></span></span>
+        </button>
+        <p class="track-desc">Sole point of contact for a non-profit's website, keeping programs and volunteer listings current.</p>
       </li>
-      <li class="timeline-item">
-        <span class="timeline-date">2021&ndash;2022</span>
-        <h3>UI/UX Fellow</h3>
-        <p>Completed a certificate fellowship in UI/UX foundations, culminating in a full app redesign case study.</p>
+      <li class="track" data-start="2021" data-end="2022">
+        <button class="track-btn" type="button" aria-current="false">
+          <span class="tn">04</span>
+          <span class="tt"><strong>UI/UX Fellow</strong><small>Certificate fellowship</small></span>
+          <span class="tmeta"><span class="tyr">2021–2022</span><span class="tspan"><i style="--l:40%;--w:10%"></i></span></span>
+        </button>
+        <p class="track-desc">Completed a certificate fellowship in UI/UX foundations, culminating in a full app redesign case study.</p>
       </li>
-      <li class="timeline-item">
-        <span class="timeline-date">2017&ndash;Present</span>
-        <h3>Freelance Web Designer</h3>
-        <p>Independent client work — consultation through delivery, across a handful of small-business sites.</p>
+      <li class="track" data-start="2017" data-end="2027">
+        <button class="track-btn" type="button" aria-current="false">
+          <span class="tn">05</span>
+          <span class="tt"><strong>Freelance Web Designer</strong><small>Independent</small></span>
+          <span class="tmeta"><span class="tyr">2017–Now</span><span class="tspan"><i style="--l:0%;--w:100%"></i></span></span>
+        </button>
+        <p class="track-desc">Independent client work — consultation through delivery, across a handful of small-business sites.</p>
       </li>
-    </ol>
+      </ol>
+    </div>
   </section>
 
   <!-- CONTACT -->
   <section class="contact" id="contact">
-    <div class="contact-inner">
-      <div class="contact-copy">
-        <p class="eyebrow">Get In Touch</p>
-        <h2>Contact</h2>
-        <p>If something here is relevant to what you're building, I'd like to hear about it. Reach out below, or find me on either platform.</p>
-        <div class="socials">
-          <a href="https://github.com/anushka02singh" target="_blank" rel="noopener">GitHub</a>
-          <a href="https://www.linkedin.com/in/anushka-singh-as/" target="_blank" rel="noopener">LinkedIn</a>
+    <div class="contact-head">
+      <p class="eyebrow">Get In Touch</p>
+      <h2>Contact</h2>
+      <p>If something here is relevant to what you're building, I'd like to hear about it. Say it to the camera below, or find me on either platform.</p>
+      <div class="socials">
+        <a href="https://github.com/anushka02singh" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/anushka-singh-as/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+
+    <div class="camera" id="camera">
+      <div class="cam-body">
+        <span class="cam-grip" aria-hidden="true"></span>
+        <span class="cam-flash-win" aria-hidden="true"></span>
+        <span class="cam-vf" aria-hidden="true"></span>
+        <span class="cam-brand" aria-hidden="true">Anu-Shot 2000 &middot; 2.0 MP</span>
+        <span class="cam-shutter-bump" aria-hidden="true"></span>
+
+        <div class="lens" id="lens" aria-hidden="true">
+          <div class="lens-ring"><div class="lens-glass"><span class="lens-glint"></span></div></div>
         </div>
+
+        <form class="lcd" id="contactForm">
+          <div class="lcd-bar"><span><b>&#9679;</b> REC &middot; msg mode</span><span>1/1</span></div>
+          <div class="form-row">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required autocomplete="name">
+          </div>
+          <div class="form-row">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required autocomplete="email">
+          </div>
+          <div class="form-row">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Snap &amp; Send &#10022;</button>
+          <p class="form-note" id="formNote" role="status" aria-live="polite"></p>
+        </form>
+
+        <div class="cam-slot" aria-hidden="true">Photo out</div>
       </div>
 
-      <form class="contact-form" id="contactForm">
-        <div class="form-row">
-          <label for="name">Name</label>
-          <input type="text" id="name" name="name" required>
+      <div class="print-wrap" aria-hidden="true">
+        <div class="print">
+          <div class="print-photo">&#10022;</div>
+          <div class="print-caption" id="printCaption">thanks!</div>
         </div>
-        <div class="form-row">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" required>
-        </div>
-        <div class="form-row">
-          <label for="message">Message</label>
-          <textarea id="message" name="message" rows="4" required></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary">Send Message</button>
-        <p class="form-note" id="formNote" role="status" aria-live="polite"></p>
-      </form>
+      </div>
     </div>
   </section>
 

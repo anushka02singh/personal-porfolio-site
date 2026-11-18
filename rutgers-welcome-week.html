@@ -7,8 +7,9 @@
 <meta name="description" content="Homepage and section builds for Rutgers–New Brunswick's Welcome Week site.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Caveat:wght@600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Space+Grotesk:wght@500;600;700&family=Caveat:wght@600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<script>document.documentElement.classList.add("js")</script>
 </head>
 <body>
 
@@ -22,44 +23,32 @@
   </nav>
 </header>
 
-<main id="main">
-  <section class="case-hero">
-    <a class="back-link" href="portfolio.html">&larr; Back to Archive</a>
-    <span class="case-status">Live</span>
-    <h1>Rutgers Welcome Week Website</h1>
+<main id="main" class="case-wrap">
+  <a class="back-link" href="portfolio.html">&larr; Back to Archive</a>
+  <span class="case-status">Live</span>
+  <h1 class="case-title">Rutgers Welcome Week Website</h1>
+  <div class="chips"><div class="chip"><span>Role</span><b>Website Manager</b></div><div class="chip"><span>Type</span><b>Full Site Build</b></div><div class="chip"><span>Timeline</span><b>2026</b></div><div class="chip"><span>Org</span><b>Student Affairs, Rutgers University</b></div></div>
 
-    <div class="case-meta">
-      <div class="case-meta-item">
-        <span class="case-meta-label">Role</span>
-        <span class="case-meta-value">Website Manager</span>
-      </div>
-      <div class="case-meta-item">
-        <span class="case-meta-label">Type</span>
-        <span class="case-meta-value">Full Site Build</span>
-      </div>
-      <div class="case-meta-item">
-        <span class="case-meta-label">Timeline</span>
-        <span class="case-meta-value">2026</span>
-      </div>
-      <div class="case-meta-item">
-        <span class="case-meta-label">Org</span>
-        <span class="case-meta-value">Student Affairs, Rutgers University</span>
-      </div>
+  <div class="win">
+    <div class="win-bar">
+      <span class="win-title">rutgers-welcome-week.exe</span>
+      <span class="win-btns" aria-hidden="true"><i></i><i></i><i></i></span>
     </div>
-
-    <div class="case-banner-wrap">
-      <div class="case-banner thumb-2"></div>
-      <div class="case-banner-caption">welcome week, live</div>
+    <div class="win-address">
+      <span class="win-path">C:\ARCHIVE\RUTGERS-WELCOME-WEEK</span>
+      <span id="loadText">Loading&hellip;</span>
+      <span class="win-load" aria-hidden="true"><span></span></span>
     </div>
-  </section>
-
-  <div class="case-body">
-    <div class="case-content">
-      <h2>Overview</h2>
-      <p>Rutgers&ndash;New Brunswick needed one place for incoming students to land before move-in, instead of a dozen separate department pages. I built the homepage and several of the sections that make that true.</p>
-
-      <h2>What I Built</h2>
-      <p>I worked on the layout and content structure for the homepage and several key sections:</p>
+    <div class="win-main">
+      <div class="win-left" data-tabs>
+        <div class="tabs" role="tablist"><button class="tab" role="tab" type="button" id="tab0" aria-controls="panel0" aria-selected="true" tabindex="0">01 Overview</button><button class="tab" role="tab" type="button" id="tab1" aria-controls="panel1" aria-selected="false" tabindex="-1">02 What I Built</button><button class="tab" role="tab" type="button" id="tab2" aria-controls="panel2" aria-selected="false" tabindex="-1">03 Status</button></div>
+          <div class="panel is-active" role="tabpanel" id="panel0" aria-labelledby="tab0">
+            <h2>Overview</h2>
+            <p>Rutgers&ndash;New Brunswick needed one place for incoming students to land before move-in, instead of a dozen separate department pages. I built the homepage and several of the sections that make that true.</p>
+          </div>
+          <div class="panel" role="tabpanel" id="panel1" aria-labelledby="tab1">
+            <h2>What I Built</h2>
+            <p>I worked on the layout and content structure for the homepage and several key sections:</p>
       <ul>
         <li>Homepage hero and introductory "Rutgers Welcome" section, with embedded video</li>
         <li>A <strong>Facility Hours</strong> quick-access hub covering dining, student centers, health centers, and recreation</li>
@@ -68,14 +57,20 @@
         <li>An events listing pulling in upcoming Welcome Week programming</li>
         <li>A "Get Involved" teaser directing students toward the fuller events schedule</li>
       </ul>
-
-      <h2>Status</h2>
-      <p>This site is now live: <a href="https://welcome.rutgers.edu" target="_blank" rel="noopener">welcome.rutgers.edu</a>.</p>
-    </div>
-
-    <aside class="case-sidebar">
-      <h3>Quick Facts</h3>
-      <dl>
+          </div>
+          <div class="panel" role="tabpanel" id="panel2" aria-labelledby="tab2">
+            <h2>Status</h2>
+            <p>This site is now live: <a href="https://welcome.rutgers.edu" target="_blank" rel="noopener">welcome.rutgers.edu</a>.</p>
+          </div>
+      </div>
+      <aside class="win-right">
+        <div class="case-banner-wrap">
+          <div class="case-banner thumb-2"></div>
+          <div class="case-banner-caption">welcome week, live</div>
+        </div>
+        <div class="props">
+          <h3>Quick Facts</h3>
+          <dl>
         <dt>Department</dt>
         <dd>Student Affairs, Rutgers&ndash;New Brunswick</dd>
         <dt>Scope</dt>
@@ -83,21 +78,22 @@
         <dt>Status</dt>
         <dd>Live &mdash; <a href="https://welcome.rutgers.edu" target="_blank" rel="noopener">welcome.rutgers.edu</a></dd>
       </dl>
-    </aside>
+        </div>
+      </aside>
+    </div>
   </div>
 
-  <section class="other-projects">
-    <div class="other-projects-inner">
-      <h2>More Projects</h2>
-      <a class="back-link" href="portfolio.html">&larr; View all projects</a>
-    </div>
-  </section>
+  <nav class="case-nav" aria-label="More projects">
+    <a class="prev" href="rutgers-club-website.html"><small>&larr; Previous file</small><strong>Rutgers Club Site</strong></a>
+    <a class="all" href="portfolio.html"><small>Archive</small><strong>All projects</strong></a>
+    <a class="next" href="rutgers-dining-website.html"><small>Next file &rarr;</small><strong>Dining Site</strong></a>
+  </nav>
 </main>
 
 <footer class="site-footer">
   <p>&copy; <span id="year"></span> Anushka Singh.</p>
 </footer>
 
-<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<script src="script.js"></script>
 </body>
 </html>
