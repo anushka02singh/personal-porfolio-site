@@ -188,6 +188,7 @@
     </div>
 
     <div class="lab-group">
+      <p class="lab-label">Developed <span>&mdash; finished pieces</span></p>
       <div class="project-grid">
 
       <a class="project-card-link" href="peerconnect-prototype.html">
@@ -243,6 +244,7 @@
     </div>
 
     <div class="lab-group">
+      <p class="lab-label">Test shots <span>&mdash; the step before the picture</span></p>
       <div class="shot-row">
 
       <a class="shot-link" href="cafe-paris-redesign.html">
@@ -274,69 +276,80 @@
   <section class="experience" id="experience">
     <div class="section-head">
       <h2>Experience</h2>
-      <p class="section-lede">Press play. Five tracks, most recent first.</p>
+      <p class="section-lede">A roll of film, five frames, newest first. Drag the film, use the arrows, or click a frame to pull the print.</p>
     </div>
 
-    <div class="deck">
-      <div class="player" id="player">
-        <div class="vinyl" aria-hidden="true"><div class="vinyl-label"><span id="vYears">2025–Now</span></div></div>
-        <div class="now">
-          <p class="now-tag">Now playing <span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span></p>
-          <h3 id="nowTitle">Website Manager</h3>
-          <p class="now-org" id="nowOrg">Student Affairs, Rutgers University</p>
-          <p class="now-desc" id="nowDesc" aria-live="polite"></p>
-          <div class="axis" aria-hidden="true"><span id="axisFill"></span></div>
-          <div class="axis-labels" aria-hidden="true"><span>2017</span><span>2020</span><span>2023</span><span>Now</span></div>
-          <div class="controls">
-            <button class="ctl" type="button" id="prevBtn" aria-label="Previous role">&laquo;</button>
-            <button class="ctl play" type="button" id="playBtn" aria-label="Play or pause">&#10074;&#10074;</button>
-            <button class="ctl" type="button" id="nextBtn" aria-label="Next role">&raquo;</button>
-          </div>
+    <div class="roll" id="roll">
+      <div class="rig">
+        <div class="spool" aria-hidden="true">
+          <svg id="spool" viewBox="0 0 84 84"><circle cx="42" cy="42" r="40" class="sp-o"/><circle cx="42" cy="42" r="30" class="sp-m"/><circle cx="42" cy="42" r="12" class="sp-h"/><circle cx="42" cy="42" r="4" class="sp-c"/><path d="M42 12v18M42 54v18M12 42h18M54 42h18" class="sp-k"/></svg>
+        </div>
+        <div class="vp" id="rollVp" tabindex="0" aria-label="Experience film strip. Use the left and right arrow keys to change frame.">
+          <ol class="trk" id="rollTrk">
+      <li class="frame" style="--fc:#4a2a6b" data-cap="the current frame" data-tags="Drupal|Pantheon|Google Analytics">
+        <button class="fbtn" type="button" aria-current="true">
+          <span class="fn">01A</span>
+          <span class="fy">2025–Now</span>
+          <span class="fr">Website Manager</span>
+        </button>
+        <p class="frame-org">Student Affairs, Rutgers University</p>
+        <p class="frame-desc">Own the higher-complexity builds across 20+ department sites &mdash; Drupal on Pantheon, with Google Analytics to see how they&rsquo;re used &mdash; and coordinate the interns handling the rest.</p>
+      </li>
+      <li class="frame" style="--fc:#2f2a5c" data-cap="on the migration" data-tags="WordPress|Drupal">
+        <button class="fbtn" type="button" aria-current="false">
+          <span class="fn">02A</span>
+          <span class="fy">2022–2025</span>
+          <span class="fr">Web Design Intern</span>
+        </button>
+        <p class="frame-org">Student Affairs, Rutgers University</p>
+        <p class="frame-desc">Designed, built, and migrated department sites from WordPress to Drupal.</p>
+      </li>
+      <li class="frame" style="--fc:#5a2a4a" data-cap="with the team" data-tags="Non-profit|Website updates">
+        <button class="fbtn" type="button" aria-current="false">
+          <span class="fn">03A</span>
+          <span class="fy">2024–2025</span>
+          <span class="fr">Web Design Intern</span>
+        </button>
+        <p class="frame-org">YesMiss, Inc.</p>
+        <p class="frame-desc">Part of the non-profit's team: constantly updating the website and working with everyone to keep events and information up to date.</p>
+      </li>
+      <li class="frame" style="--fc:#2a4a4a" data-cap="learning the craft" data-tags="UI/UX|Case study">
+        <button class="fbtn" type="button" aria-current="false">
+          <span class="fn">04A</span>
+          <span class="fy">2021–2022</span>
+          <span class="fr">UI/UX Fellow</span>
+        </button>
+        <p class="frame-org">Certificate fellowship</p>
+        <p class="frame-desc">Completed a certificate fellowship in UI/UX foundations, culminating in a full app redesign case study.</p>
+      </li>
+      <li class="frame" style="--fc:#6b3a2a" data-cap="the long roll" data-tags="Client sites|Cafe Paris pitch">
+        <button class="fbtn" type="button" aria-current="false">
+          <span class="fn">05A</span>
+          <span class="fy">2017–Now</span>
+          <span class="fr">Freelance Web Designer</span>
+        </button>
+        <p class="frame-org">Independent</p>
+        <p class="frame-desc">Independent client work, from consultation through delivery, across a handful of small-business sites. Latest: a redesign pitch for Cafe Paris in Metuchen.</p>
+      </li>
+          </ol>
         </div>
       </div>
-
-      <ol class="tracklist" id="tracklist">
-      <li class="track is-active" data-start="2025" data-end="2027">
-        <button class="track-btn" type="button" aria-current="true">
-          <span class="tn">01</span>
-          <span class="tt"><strong>Website Manager</strong><small>Student Affairs, Rutgers University</small></span>
-          <span class="tmeta"><span class="tyr">2025–Now</span><span class="tspan"><i style="--l:80%;--w:20%"></i></span></span>
-        </button>
-        <p class="track-desc">Own the higher-complexity builds across 20+ department sites &mdash; Drupal on Pantheon, with Google Analytics to see how they&rsquo;re used &mdash; and coordinate the interns handling the rest.</p>
-      </li>
-      <li class="track" data-start="2022" data-end="2025">
-        <button class="track-btn" type="button" aria-current="false">
-          <span class="tn">02</span>
-          <span class="tt"><strong>Web Design Intern</strong><small>Student Affairs, Rutgers University</small></span>
-          <span class="tmeta"><span class="tyr">2022–2025</span><span class="tspan"><i style="--l:50%;--w:30%"></i></span></span>
-        </button>
-        <p class="track-desc">Designed, built, and migrated department sites from WordPress to Drupal.</p>
-      </li>
-      <li class="track" data-start="2024" data-end="2025">
-        <button class="track-btn" type="button" aria-current="false">
-          <span class="tn">03</span>
-          <span class="tt"><strong>Web Design Intern</strong><small>YesMiss, Inc.</small></span>
-          <span class="tmeta"><span class="tyr">2024–2025</span><span class="tspan"><i style="--l:70%;--w:10%"></i></span></span>
-        </button>
-        <p class="track-desc">Part of the non-profit's team: constantly updating the website and working with everyone to keep events and information up to date.</p>
-      </li>
-      <li class="track" data-start="2021" data-end="2022">
-        <button class="track-btn" type="button" aria-current="false">
-          <span class="tn">04</span>
-          <span class="tt"><strong>UI/UX Fellow</strong><small>Certificate fellowship</small></span>
-          <span class="tmeta"><span class="tyr">2021–2022</span><span class="tspan"><i style="--l:40%;--w:10%"></i></span></span>
-        </button>
-        <p class="track-desc">Completed a certificate fellowship in UI/UX foundations, culminating in a full app redesign case study.</p>
-      </li>
-      <li class="track" data-start="2017" data-end="2027">
-        <button class="track-btn" type="button" aria-current="false">
-          <span class="tn">05</span>
-          <span class="tt"><strong>Freelance Web Designer</strong><small>Independent</small></span>
-          <span class="tmeta"><span class="tyr">2017–Now</span><span class="tspan"><i style="--l:0%;--w:100%"></i></span></span>
-        </button>
-        <p class="track-desc">Independent client work, from consultation through delivery, across a handful of small-business sites. Latest: a redesign pitch for Cafe Paris in Metuchen.</p>
-      </li>
-      </ol>
+      <div class="roll-ctl">
+        <span class="roll-cnt" id="rollCnt">Frame 01 / 05</span>
+        <div class="roll-btns">
+          <button class="roll-btn" type="button" id="rollPrev" aria-label="Previous frame">&larr;</button>
+          <button class="roll-btn" type="button" id="rollNext" aria-label="Next frame">&rarr;</button>
+        </div>
+      </div>
+      <div class="roll-print" id="rollPrint" aria-live="polite">
+        <div class="pol"><div class="pol-img" id="pImg"></div><p class="pol-cap" id="pCap"></p></div>
+        <div class="pt">
+          <h3 id="pTitle"></h3>
+          <p class="pt-org" id="pOrg"></p>
+          <p class="pt-desc" id="pDesc"></p>
+          <div class="pt-tags" id="pTags"></div>
+        </div>
+      </div>
     </div>
   </section>
 

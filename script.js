@@ -178,55 +178,89 @@ if (tickerTrack && !prefersReducedMotion && tickerTrack.getAnimations) {
   }
 }
 
-// ---------- Experience: "Now Playing" ----------
-const player = document.getElementById('player');
-const tracks = Array.from(document.querySelectorAll('.track'));
-if (player && tracks.length) {
+// ---------- Experience: film roll ----------
+const roll = document.getElementById('roll');
+const frames = Array.from(document.querySelectorAll('.frame'));
+if (roll && frames.length) {
+  const vp = document.getElementById('rollVp'), trk = document.getElementById('rollTrk');
+  const spool = document.getElementById('spool'), pol = roll.querySelector('.pol'), pt = roll.querySelector('.pt');
   const $ = (id) => document.getElementById(id);
-  const nowTitle = $('nowTitle'), nowOrg = $('nowOrg'), nowDesc = $('nowDesc');
-  const vYears = $('vYears'), axisFill = $('axisFill'), playBtn = $('playBtn');
-  let current = 0, timer = null, userTookOver = false;
+  let cur = 0, shown = false, touched = false;
 
-  const select = (i) => {
-    current = (i + tracks.length) % tracks.length;
-    tracks.forEach((t, j) => {
-      t.classList.toggle('is-active', j === current);
-      t.querySelector('.track-btn').setAttribute('aria-current', String(j === current));
-    });
-    const t = tracks[current];
-    nowTitle.textContent = t.querySelector('.tt strong').textContent;
-    nowOrg.textContent = t.querySelector('.tt small').textContent;
-    nowDesc.textContent = t.querySelector('.track-desc').textContent;
-    vYears.textContent = t.querySelector('.tyr').textContent;
-    nowDesc.classList.remove('swap'); void nowDesc.offsetWidth; nowDesc.classList.add('swap');
-    const s = +t.dataset.start, e = +t.dataset.end;
-    axisFill.style.left = ((s - 2017) / 10) * 100 + '%';
-    axisFill.style.width = ((e - s) / 10) * 100 + '%';
+  const offsetFor = (i) => {
+    const f = frames[i];
+    const centered = vp.clientWidth / 2 - (f.offsetLeft + f.offsetWidth / 2);
+    const min = Math.min(0, vp.clientWidth - trk.scrollWidth);
+    return Math.max(min, Math.min(0, centered));
   };
-  const play = () => {
-    if (timer) return;
-    player.classList.add('is-playing');
-    playBtn.innerHTML = '&#10074;&#10074;';
-    timer = setInterval(() => select(current + 1), 4800);
-  };
-  const pause = () => {
-    clearInterval(timer); timer = null;
-    player.classList.remove('is-playing');
-    playBtn.innerHTML = '&#9654;';
+  const go = (i, quiet) => {
+    cur = Math.max(0, Math.min(frames.length - 1, i));
+    const f = frames[cur];
+    frames.forEach((fr, j) => fr.querySelector('.fbtn').setAttribute('aria-current', String(j === cur)));
+    f.classList.add('seen');
+    trk.style.transform = 'translateX(' + offsetFor(cur) + 'px)';
+    spool.style.transform = 'rotate(' + (-cur * 140) + 'deg)';
+    $('rollCnt').textContent = 'Frame ' + String(cur + 1).padStart(2, '0') + ' / ' + String(frames.length).padStart(2, '0');
+    const fb = f.querySelector('.fbtn');
+    $('pImg').textContent = 'FRAME ' + f.querySelector('.fn').textContent;
+    pol.style.setProperty('--fc', f.style.getPropertyValue('--fc'));
+    $('pCap').textContent = f.dataset.cap;
+    $('pTitle').textContent = f.querySelector('.fr').textContent;
+    $('pOrg').textContent = f.querySelector('.frame-org').textContent + ' \u00b7 ' + f.querySelector('.fy').textContent;
+    $('pDesc').textContent = f.querySelector('.frame-desc').textContent;
+    $('pTags').innerHTML = '';
+    f.dataset.tags.split('|').forEach((t) => { const s = document.createElement('span'); s.textContent = t; $('pTags').appendChild(s); });
+    if (!quiet) {
+      pol.classList.remove('pop'); void pol.offsetWidth; pol.classList.add('pop');
+      pt.classList.remove('swap'); void pt.offsetWidth; pt.classList.add('swap');
+    }
   };
 
-  tracks.forEach((t, i) => t.querySelector('.track-btn').addEventListener('click', () => { userTookOver = true; pause(); select(i); }));
-  $('prevBtn').addEventListener('click', () => { userTookOver = true; select(current - 1); });
-  $('nextBtn').addEventListener('click', () => { userTookOver = true; select(current + 1); });
-  playBtn.addEventListener('click', () => { userTookOver = true; timer ? pause() : play(); });
+  frames.forEach((f, i) => f.querySelector('.fbtn').addEventListener('click', () => { if (!dragMoved) { touched = true; go(i); } }));
+  $('rollPrev').addEventListener('click', () => { touched = true; go(cur - 1); });
+  $('rollNext').addEventListener('click', () => { touched = true; go(cur + 1); });
+  vp.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight') { e.preventDefault(); go(cur + 1); }
+    if (e.key === 'ArrowLeft') { e.preventDefault(); go(cur - 1); }
+  });
 
-  select(0);
-  pause();
-  // start spinning once it scrolls into view, unless the visitor prefers reduced motion
+  // drag the film sideways
+  let startX = 0, startOff = 0, dragging = false, dragMoved = false;
+  vp.addEventListener('pointerdown', (e) => {
+    if (e.pointerType === 'mouse' && e.button !== 0) return;
+    touched = true; startX = e.clientX; startOff = offsetFor(cur); dragging = true; dragMoved = false;
+  });
+  vp.addEventListener('pointermove', (e) => {
+    if (!dragging) return;
+    const dx = e.clientX - startX;
+    if (!dragMoved && Math.abs(dx) > 6) { dragMoved = true; vp.classList.add('dragging'); vp.setPointerCapture(e.pointerId); }
+    if (dragMoved) trk.style.transform = 'translateX(' + (startOff + dx) + 'px)';
+  });
+  const endDrag = (e) => {
+    if (!dragging) return;
+    dragging = false; vp.classList.remove('dragging');
+    if (dragMoved) {
+      const dx = e.clientX - startX;
+      go(Math.abs(dx) > 40 ? cur + (dx < 0 ? 1 : -1) : cur);
+      setTimeout(() => { dragMoved = false; }, 0);
+    }
+  };
+  vp.addEventListener('pointerup', endDrag);
+  vp.addEventListener('pointercancel', endDrag);
+  window.addEventListener('resize', () => go(cur, true));
+
+  go(0, true);
+  // the first frame is already developed; the rest develop in as the roll scrolls into view
   if (!prefersReducedMotion && 'IntersectionObserver' in window) {
     new IntersectionObserver((entries, obs) => {
-      if (entries[0].isIntersecting) { if (!userTookOver) play(); obs.disconnect(); }
-    }, { threshold: 0.5 }).observe(player);
+      if (entries[0].isIntersecting && !shown) {
+        shown = true; obs.disconnect();
+        frames.forEach((_, i) => setTimeout(() => { if (!touched) go(i); }, 900 + i * 1100));
+        setTimeout(() => { if (!touched) go(0); }, 900 + frames.length * 1100 + 600);
+      }
+    }, { threshold: 0.5 }).observe(roll);
+  } else {
+    frames.forEach((f) => f.classList.add('seen'));
   }
 }
 
