@@ -1,60 +1,71 @@
-# Portfolio Site — Darkroom / Polaroid Archive
+# Portfolio Site: Darkroom Archive
 
-A from-scratch HTML/CSS/JavaScript build of my personal portfolio, styled as a running photo archive — projects presented as tilted, "developing" polaroids filed into a personal darkroom. No page builder, no framework.
+My personal portfolio, built from scratch in plain HTML, CSS and JavaScript with no framework and no build step. It's styled as a darkroom: projects are developing polaroids, work in progress is a viewfinder test shot, experience is a roll of film, and the contact form is a camera.
 
-## Design Direction
+Live site: https://anushka02singh.github.io
 
-The site treats each project like a photograph being filed into an archive:
+## Design direction
 
-- **Palette:** near-black with a purple undertone, antique gold flash, dusty mauve, and deep burgundy/wine duotones — against aged ivory polaroid paper (not stark white).
-- **Type:** Space Grotesk (display), Inter (body), IBM Plex Mono (labels/meta), Caveat (handwritten polaroid captions).
-- **Motion:** polaroids and project cards "develop" into color from grayscale as they scroll into view, with a quick camera-flash flicker the instant each one resolves, a staggered cascade across each row/grid, and a gentle idle sway on the hero strip once developed (`prefers-reduced-motion` respected throughout; everything still renders fully visible without JavaScript).
-- **Texture:** a fixed film-grain/vignette overlay runs behind every page.
+- **Palette:** near-black with a purple undertone, chrome and pink highlights, and aged ivory polaroid paper. Y2K by way of the darkroom.
+- **Type:** Cormorant Garamond (headings), Space Grotesk (display), Inter (body), IBM Plex Mono (labels), Caveat (handwritten captions). All self-hosted.
+- **Motion:** projects "develop" from blurry and faded to sharp as they scroll into view, with sparkle cursor trails, 3D tilt and holo glare on project photos, and a clothesline that sways with the cursor. `prefers-reduced-motion` is respected throughout, and the content stays fully readable without JavaScript.
 
-## Features
+## What's on the site
 
-- Fully responsive layout (desktop down to mobile, with a custom mobile nav toggle)
-- Custom CSS design system (color tokens, type scale, consistent spacing) — no CSS framework
-- Scroll-triggered "develop" animation via `IntersectionObserver`
-- Interactive project grid — each project links to its own dedicated case study page, presented as a polaroid
-- Chronological experience timeline with connecting line and date markers
-- Contact form with client-side interaction (static demo — not connected to a backend)
-- Accessibility basics: skip link, visible focus states, `prefers-reduced-motion` support, semantic landmarks
+- **Home:** hero, a clothesline of recent work, a scrolling skills ticker, the Archive (client and department sites), the Design Lab, Experience and Contact.
+- **Archive:** department and client websites, each with its own case-study page in an OS-window layout with tabs.
+- **Design Lab:** developed pieces (PeerConnect, Fellowship project, CardFlow, UI Component Library, Music Visualizer, Info Tech term project) as polaroids, and test shots (Cafe Paris, Craigslist, Instagram Stories, Rec2Go redesign, Zingers) as viewfinders. Test shots are in-progress or exploratory work, labeled as such.
+- **Experience:** a film roll that unspools sideways. Drag it, use the arrows or arrow keys, or click a frame to pull its print.
+- **Contact:** a point-and-shoot camera. Sending a message fires the flash and prints a photo.
 
-## Project Structure
+## Contact form
 
-All files sit in a single flat directory (no subfolders) so relative links resolve correctly regardless of hosting setup:
+The form posts to [Formspree](https://formspree.io) from `script.js`, using the endpoint in the form's `data-endpoint` attribute in `index.html`. Bots are filtered with a hidden honeypot field, and messages have length limits. If the endpoint is ever missing or still a placeholder, the form falls back to opening the visitor's email app with the message pre-filled.
+
+## Security notes
+
+GitHub Pages can't set response headers, so protections live in the pages themselves:
+
+- A Content Security Policy `<meta>` tag on every page allows only the site's own files, a hashed inline script, and Formspree for the form.
+- Referrer policy meta tag, and `rel="noopener noreferrer"` on every link that opens a new tab.
+- A small frame-busting check in `script.js` so other sites can't embed the page.
+- Fonts are self-hosted, so no third-party requests are made when the page loads.
+
+If you change the small inline script in the `<head>` of each page (the one that adds the `js` class), its hash in the CSP must be updated to match.
+
+## Project structure
+
+Pages, styles and script sit in one flat directory so relative links work on any host. The only subfolder is `fonts/`.
 
 ```
-├── index.html                                 Homepage: hero, polaroid strip, portfolio grid, experience, contact
-├── portfolio.html                             Dedicated Archive page — alternating polaroid case-study rows
-├── styles.css                                 Design tokens, layout, and responsive styles
-├── script.js                                  Mobile nav toggle, contact form interaction, develop animation
-├── rutgers-hr-site.html                       HR & Employment resource page rebuild
-├── rutgers-club-website.html                  Rutgers Club hero, menu & staff directory rebuild
-├── rutgers-welcome-week.html                  Rutgers Welcome Week site build
-├── rutgers-dining-website.html                Rutgers Dining Services department site
-├── rutgers-residence-life.html                Rutgers Residence Life department site
-├── volunteer-website.html                     YesMiss, Inc. nonprofit website
-├── freelance-doctor-website.html              Freelance client project
-└── fellowship-project.html                    UI/UX Fellowship case study (Forest app redesign)
+├── index.html                      Homepage
+├── portfolio.html                  Archive page: every project as an alternating row
+├── styles.css                      Design tokens, layout, animations, @font-face rules
+├── script.js                       Nav, sparkles, develop reveal, film roll, camera form, case-page tabs
+├── fonts/                          Self-hosted .woff2 files (SIL Open Font License)
+├── *.html                          One case-study page per project (Archive and Design Lab)
+└── README.md
 ```
 
-Each project page follows a consistent case-study format: role, project type, timeline, an overview, what I actually did, and current status (live, in development, or concluded) — written honestly rather than overstating scope.
+Each case-study page follows the same format: role, type, timeline, an overview, what I did, and where things stand, written plainly rather than overstating scope. Work that isn't finished says so.
 
-## Tech Stack
+## Tech stack
 
-- HTML5 (semantic markup)
-- CSS3 (custom properties, Flexbox, Grid, no framework)
-- Vanilla JavaScript (mobile nav toggle, form interaction, IntersectionObserver reveal)
-- Google Fonts: Space Grotesk, Inter, IBM Plex Mono, Caveat
+- HTML5 (semantic markup, ARIA tabs on case pages)
+- CSS3 (custom properties, Flexbox, Grid; no framework)
+- Vanilla JavaScript (IntersectionObserver reveals, pointer events for the film roll, fetch for the form)
+- Fonts: Cormorant Garamond, Space Grotesk, Inter, IBM Plex Mono and Caveat, via the Fontsource packages
 
-## Running Locally
+## Running locally
 
-No build step required. Either:
-- Open `index.html` directly in a browser, or
-- Serve the folder locally, e.g. `python3 -m http.server 8080` and visit `localhost:8080`
+No build step. Either open `index.html` in a browser, or serve the folder (needed to test the form and the Content Security Policy):
+
+```
+python3 -m http.server 8080
+```
+
+then visit `localhost:8080`.
 
 ## Deploying
 
-This repo is deployed via GitHub Pages — see the repository settings for the live URL.
+Deployed with GitHub Pages. Push to the main branch, wait a minute or two, then hard-refresh to bypass the cache.
