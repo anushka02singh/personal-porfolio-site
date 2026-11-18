@@ -96,10 +96,12 @@ if (contactForm && camera) {
     const first = String(data.get('name') || '').trim().split(' ')[0];
     if (data.get('_gotcha')) { done(first, 'Photo developed.'); return; } // bots fill the hidden field
     if (!configured) {
+      // no form service set: still do the flash and print-out, then hand the message to the visitor's email app
       const to = ['anushka0singh', 'gmail.com'].join('@');
       const body = String(data.get('message')) + '\n\n' + String(data.get('name')) + ' (' + String(data.get('email')) + ')';
-      window.location.href = 'mailto:' + to + '?subject=' + encodeURIComponent('Portfolio message from ' + data.get('name')) + '&body=' + encodeURIComponent(body);
-      note.textContent = 'Opening your email app to send this.';
+      const href = 'mailto:' + to + '?subject=' + encodeURIComponent('Portfolio message from ' + data.get('name')) + '&body=' + encodeURIComponent(body);
+      done(first, 'Photo developed. Your email app should open so you can press send.');
+      setTimeout(() => { window.location.href = href; }, 900);
       return;
     }
     sendBtn.disabled = true; note.textContent = 'Developing\u2026';
